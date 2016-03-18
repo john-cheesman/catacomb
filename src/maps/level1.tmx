@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="12" height="10" tilewidth="32" tileheight="32" nextobjectid="8">
+ <tileset firstgid="1" name="tiny32" tilewidth="32" tileheight="32" tilecount="256">
+  <image source="../../../combat/web/images/tiny32.png" width="512" height="512"/>
+ </tileset>
+ <tileset firstgid="257" name="tiny32" tilewidth="32" tileheight="32" tilecount="256">
+  <image source="../../../combat/src/images/tiny32.png" width="512" height="512"/>
+ </tileset>
+ <layer name="baseLayer" width="12" height="10">
+  <data encoding="csv">
+87,87,87,87,87,87,87,87,87,87,87,87,
+87,87,87,87,87,87,87,87,87,87,87,87,
+87,105,105,105,105,105,105,105,105,105,105,87,
+87,105,105,105,87,87,87,105,105,105,105,87,
+87,105,105,105,87,87,87,105,105,105,105,87,
+87,87,105,105,105,87,87,87,105,105,87,87,
+87,87,87,105,105,87,87,87,105,105,87,87,
+87,87,87,105,105,87,87,87,105,105,87,87,
+87,87,87,105,105,87,87,105,105,105,105,87,
+87,87,87,87,87,87,87,87,87,87,87,87
+</data>
+ </layer>
+ <layer name="subGroundLayer" width="12" height="10">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <layer name="superGroundLayer" width="12" height="10">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <layer name="subCollisionLayer" width="12" height="10">
+  <data encoding="csv">
+0,117,117,117,117,117,117,117,117,117,117,0,
+102,104,104,104,104,104,104,104,104,104,104,100,
+102,0,0,0,0,0,0,0,0,0,0,100,
+102,0,0,0,84,85,86,0,0,0,0,100,
+102,0,0,0,116,0,102,0,0,0,0,100,
+0,86,0,0,104,100,0,86,0,0,84,0,
+0,0,86,0,0,100,0,118,0,0,116,0,
+0,0,102,0,0,100,102,104,0,0,104,100,
+0,0,102,0,0,100,102,0,0,0,0,100,
+0,0,0,85,85,0,0,85,85,85,85,0
+</data>
+ </layer>
+ <layer name="superCollisionLayer" width="12" height="10">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup name="objectLayer">
+  <object id="1" name="mapChest" type="Chest" gid="37" x="64" y="96" width="32" height="32">
+   <properties>
+    <property name="contents" value="map"/>
+    <property name="frame" value="36"/>
+   </properties>
+  </object>
+  <object id="2" name="torch" type="Torch" gid="207" x="320" y="96" width="32" height="32">
+   <properties>
+    <property name="frame" value="206"/>
+   </properties>
+  </object>
+  <object id="3" name="menu" type="Stairs" gid="2147483770" x="224" y="288" width="32" height="32">
+   <properties>
+    <property name="flipX" value="true"/>
+    <property name="frame" value="121"/>
+    <property name="targetState" value="menu"/>
+   </properties>
+  </object>
+  <object id="5" name="boy" type="Player" gid="385" x="256" y="288" width="32" height="32">
+   <properties>
+    <property name="direction" value="up"/>
+    <property name="immovable" value="false"/>
+    <property name="key" value="boy"/>
+    <property name="playerDirection" value="down"/>
+   </properties>
+  </object>
+  <object id="7" name="exit" type="Stairs" gid="123" x="128" y="288" width="32" height="32">
+   <properties>
+    <property name="frame" value="122"/>
+    <property name="targetState" value="LevelExit"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>
