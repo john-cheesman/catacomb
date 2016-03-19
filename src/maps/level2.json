@@ -64,10 +64,10 @@
                  "gid":37,
                  "height":32,
                  "id":1,
-                 "name":"mapChest",
+                 "name":"gemChest",
                  "properties":
                     {
-                     "contents":"map",
+                     "contents":"Gem",
                      "frame":"36"
                     },
                  "rotation":0,
@@ -181,7 +181,7 @@
                  "visible":true,
                  "width":32,
                  "x":64,
-                 "y":192
+                 "y":128
                 }, 
                 {
                  "gid":158,
@@ -217,7 +217,7 @@
                  "visible":true,
                  "width":32,
                  "x":224,
-                 "y":288
+                 "y":224
                 }, 
                 {
                  "gid":49,

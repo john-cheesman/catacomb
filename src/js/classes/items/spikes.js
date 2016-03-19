@@ -16,18 +16,25 @@ export class Spikes extends Item {
     }
 
     update() {
-        this.game.physics.arcade.collide(this.game.player, this);
+        this.game.physics.arcade.collide(this.game.player, this, null, this.checkIfEnabled, this);
     }
 
     disable() {
         if (!this.disabled) {
-            //this.frame = frames.spikes.disabled;
             this.animations.stop('active');
 
             console.log('You disabled ' + this.name);
 
             this.disabled = true;
         }
+    }
+
+    checkIfEnabled() {
+        if (!this.disabled) {
+            return true;
+        }
+
+        return false;
     }
 
     static instantiateFromMapData(game, object) {

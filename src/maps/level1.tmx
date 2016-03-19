@@ -77,9 +77,9 @@
 </data>
  </layer>
  <objectgroup name="objectLayer">
-  <object id="1" name="mapChest" type="Chest" gid="37" x="64" y="96" width="32" height="32">
+  <object id="1" name="gemChest" type="Chest" gid="37" x="64" y="96" width="32" height="32">
    <properties>
-    <property name="contents" value="map"/>
+    <property name="contents" value="Gem"/>
     <property name="frame" value="36"/>
    </properties>
   </object>

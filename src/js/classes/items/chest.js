@@ -2,10 +2,11 @@ import {Item} from '../item';
 import {animations, sprites} from '../../config';
 
 export class Chest extends Item {
-    constructor(game, x, y, key, frame, name, group, flipX, flipY, immovable, contents, opened = false) {
+    constructor(game, x, y, key, frame, name, group, flipX, flipY, immovable, contents, quantity = 1, opened = false) {
         super(game, x, y, key, frame, name, group, flipX, flipY, immovable);
 
         this.contents = contents;
+        this.quantity = quantity;
         this.opened = opened;
     }
 
@@ -42,6 +43,7 @@ export class Chest extends Item {
             object.properties.flipY === 'true',
             object.properties.immovable,
             object.properties.contents,
+            object.properties.quanity,
             object.properties.open
         );
     }
