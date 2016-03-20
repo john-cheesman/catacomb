@@ -1,5 +1,6 @@
-import {Item} from '../item';
-import {animations, sprites} from '../../config';
+import { Item } from '../item';
+import { Factory } from '../factory';
+import { animations, sprites } from '../../config';
 
 export class Chest extends Item {
     constructor(game, x, y, key, frame, name, group, flipX, flipY, immovable, contents, quantity = 1, opened = false) {
@@ -22,6 +23,14 @@ export class Chest extends Item {
 
     open() {
         if (!this.opened) {
+            let type,
+                pickup;
+
+            type = Factory.getObjectFromString(this.contents);
+            pickup = new type(this.game, this.quantity);
+
+            pickup.collect();
+
             this.animations.play('open');
 
             console.log('You found ' + this.contents);

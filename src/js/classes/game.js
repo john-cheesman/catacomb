@@ -27,10 +27,11 @@ export class Game extends Phaser.Game {
         this.state.start('Boot');
     }
 
-    updateProgress(levelID, time) {
+    updateProgress(levelID, time, pickups) {
         this.progress.levelsCompleted.push({
             id: levelID,
-            time: time
+            time: time,
+            pickups: pickups
         });
     }
 };

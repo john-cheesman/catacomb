@@ -4,6 +4,7 @@ import { Fire } from './items/fire';
 import { Stairs } from './items/stairs';
 import { Spikes } from './items/spikes';
 import { Switch } from './items/switch';
+import { Gem } from './pickups/gem';
 import { dimensions } from '../config';
 
 let objects;
@@ -14,7 +15,8 @@ objects = {
     Fire: Fire,
     Stairs: Stairs,
     Spikes: Spikes,
-    Switch: Switch
+    Switch: Switch,
+    Gem: Gem
 };
 
 export class Factory {

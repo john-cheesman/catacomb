@@ -11,6 +11,7 @@ export class LevelExit extends Phaser.State {
         formattedTime = Utility.displayTime(completedLevelData.time);
 
         console.log(`Exited level ${completedLevelData.id} after ${formattedTime.minutes}:${formattedTime.seconds}`);
+        console.log('Pickups: ', completedLevelData.pickups);
     }
 
     create() {
