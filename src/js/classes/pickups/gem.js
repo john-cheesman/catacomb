@@ -1,4 +1,5 @@
 import { Pickup } from '../pickup';
+import { Message } from '../message';
 
 export class Gem extends Pickup {
     constructor(game, quantity) {
@@ -11,6 +12,14 @@ export class Gem extends Pickup {
     collect() {
         super.collect();
 
-        console.log(`You collected ${this.quantity} ${this.quantity > 1 ? this.plural : this.singular}`);
+        let messageText,
+            message;
+
+        messageText = ` You collected ${this.quantity} ${this.quantity > 1 ? this.plural : this.singular}`;
+        message = new Message(this.game, messageText);
+
+        message.display(1000);
+
+        console.log(messageText);
     }
 }
