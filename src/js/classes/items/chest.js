@@ -52,7 +52,7 @@ export class Chest extends Item {
             object.properties.flipY === 'true',
             object.properties.immovable,
             object.properties.contents,
-            object.properties.quanity,
+            object.properties.quantity,
             object.properties.open
         );
     }

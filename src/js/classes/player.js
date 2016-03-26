@@ -1,4 +1,4 @@
-import { animations, frames, sprites } from '../config';
+import { animations, frames, sprites, playerSpeed } from '../config';
 
 export class Player extends Phaser.Sprite {
     constructor(game, x, y, key, direction = 'down') {
@@ -22,7 +22,7 @@ export class Player extends Phaser.Sprite {
 
         this.frame = frames.player[this.direction];
 
-        this.speed = 120;
+        this.speed = playerSpeed;
     }
 
     create() {

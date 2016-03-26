@@ -5,6 +5,8 @@ import { Stairs } from './items/stairs';
 import { Spikes } from './items/spikes';
 import { Switch } from './items/switch';
 import { Gem } from './pickups/gem';
+import { Gold } from './pickups/gold';
+import { SpeedBoost } from './pickups/speed-boost';
 import { dimensions } from '../config';
 
 let objects;
@@ -16,7 +18,9 @@ objects = {
     Stairs: Stairs,
     Spikes: Spikes,
     Switch: Switch,
-    Gem: Gem
+    Gem: Gem,
+    Gold: Gold,
+    SpeedBoost: SpeedBoost
 };
 
 export class Factory {

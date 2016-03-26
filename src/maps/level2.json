@@ -64,11 +64,12 @@
                  "gid":37,
                  "height":32,
                  "id":1,
-                 "name":"gemChest",
+                 "name":"goldChest",
                  "properties":
                     {
-                     "contents":"Gem",
-                     "frame":"36"
+                     "contents":"Gold",
+                     "frame":"36",
+                     "quantity":"5"
                     },
                  "rotation":0,
                  "type":"Chest",
@@ -236,6 +237,23 @@
                  "width":32,
                  "x":160,
                  "y":288
+                }, 
+                {
+                 "gid":37,
+                 "height":32,
+                 "id":14,
+                 "name":"speedBoostChest",
+                 "properties":
+                    {
+                     "contents":"SpeedBoost",
+                     "frame":"36"
+                    },
+                 "rotation":0,
+                 "type":"Chest",
+                 "visible":true,
+                 "width":32,
+                 "x":224,
+                 "y":288
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -244,7 +262,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":14,
+ "nextobjectid":15,
  "orientation":"orthogonal",
  "properties":
     {

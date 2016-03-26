@@ -1,32 +1,53 @@
-import { dimensions } from '../config';
+import { sprites, dimensions } from '../config';
 
-export class Message extends Phaser.Text {
-    constructor(game, text, x = (dimensions.gameWidth / 2), y = (dimensions.gameHeight - 10)) {
-        super(game, x, y, text, {
-            font: '18px Consolas',
+export class Message {
+    constructor(game, text, frame, key = sprites.tileSet.key) {
+        let textX,
+            textY,
+            textWidth;
+
+        this.game = game;
+        this.ground = new Phaser.Graphics(this.game);
+
+        if (frame && key) {
+            this.sprite = new Phaser.Sprite(game, (dimensions.tileSize / 2), (dimensions.gameHeight - (dimensions.tileSize / 2)), key, frame);
+            this.sprite.fixedToCamera = true;
+            this.sprite.anchor.set(0, 1);
+
+            textX = (dimensions.tileSize * 2);
+            textWidth = dimensions.gameWidth - (dimensions.tileSize * 2.5);
+        }
+        else {
+            textX = (dimensions.tileSize / 2);
+            textWidth = dimensions.gameWidth - dimensions.tileSize;
+        }
+
+        textY = dimensions.gameHeight - (dimensions.tileSize * 1.5);
+
+        this.text = new Phaser.Text(game, textX, textY, text, {
+            font: '16px Consolas',
             fill: 'rgb(222, 238, 214)',
-            align: 'center',
+            align: 'left',
             wordWrap: true,
-            wordWrapWidth: dimensions.gameWidth - 40,
-            backgroundColor: 'rgb(20, 12, 28)'
+            wordWrapWidth: textWidth
         });
 
-        this.fixedToCamera = true;
-        this.anchor.set(0.5,1);
-        this.alpha = 0.85;
+        this.text.fixedToCamera = true;
+        this.ground.fixedToCamera = true;
+
+        this.text.lineSpacing = -6;
+
+        this.ground.beginFill(0x201228, 0.85);
+        this.ground.drawRect(0, (dimensions.gameHeight - (dimensions.tileSize * 2)), dimensions.gameWidth, (dimensions.tileSize * 2));
+
     }
 
     display(duration) {
-        let currentState;
+        this.game.add.existing(this.ground);
+        this.game.add.existing(this.text);
 
-        currentState = this.game.state.getCurrentState();
-
-        //currentState.time.add(duration, this.hide, this);
-
-        this.game.add.existing(this);
-    }
-
-    hide() {
-        this.destroy();
+        if (this.sprite) {
+            this.game.add.existing(this.sprite);
+        }
     }
 }

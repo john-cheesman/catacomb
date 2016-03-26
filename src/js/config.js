@@ -49,9 +49,13 @@ const frames = {
     },
     spikes: {
         disabled: 157
-    }
+    },
+    gold: 153,
+    gems: 154
 }
 
 const levels = 2;
 
-export { dimensions, sprites, animations, frames, levels }
+const playerSpeed = 120;
+
+export { dimensions, sprites, animations, frames, levels, playerSpeed }

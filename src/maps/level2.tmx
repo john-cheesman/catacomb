@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="12" height="10" tilewidth="32" tileheight="32" nextobjectid="14">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="12" height="10" tilewidth="32" tileheight="32" nextobjectid="15">
  <tileset firstgid="1" name="tiny32" tilewidth="32" tileheight="32" tilecount="256">
   <image source="../../../combat/web/images/tiny32.png" width="512" height="512"/>
  </tileset>
@@ -77,10 +77,11 @@
 </data>
  </layer>
  <objectgroup name="objectLayer">
-  <object id="1" name="gemChest" type="Chest" gid="37" x="320" y="288" width="32" height="32">
+  <object id="1" name="goldChest" type="Chest" gid="37" x="320" y="288" width="32" height="32">
    <properties>
-    <property name="contents" value="Gem"/>
+    <property name="contents" value="Gold"/>
     <property name="frame" value="36"/>
+    <property name="quantity" value="5"/>
    </properties>
   </object>
   <object id="2" name="torch" type="Torch" gid="207" x="160" y="224" width="32" height="32">
@@ -142,6 +143,12 @@
     <property name="action" value="disableSpikes"/>
     <property name="frame" value="48"/>
     <property name="thrown" value="false"/>
+   </properties>
+  </object>
+  <object id="14" name="speedBoostChest" type="Chest" gid="37" x="224" y="288" width="32" height="32">
+   <properties>
+    <property name="contents" value="SpeedBoost"/>
+    <property name="frame" value="36"/>
    </properties>
   </object>
  </objectgroup>

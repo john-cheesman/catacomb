@@ -2,12 +2,12 @@ import { Pickup } from '../pickup';
 import { Message } from '../message';
 import { frames } from '../../config';
 
-export class Gem extends Pickup {
+export class Gold extends Pickup {
     constructor(game, quantity) {
         super(game, quantity);
 
-        this.singular = 'a gem';
-        this.plural = 'gems';
+        this.singular = 'a piece of gold';
+        this.plural = 'pieces of gold';
     }
 
     collect() {
@@ -17,7 +17,7 @@ export class Gem extends Pickup {
             message;
 
         messageText = this.quantity > 1 ? `You found ${this.quantity} ${this.plural}` : `You found ${this.singular}`;
-        message = new Message(this.game, messageText, frames.gems);
+        message = new Message(this.game, messageText, frames.gold);
 
         message.display(1000);
     }
