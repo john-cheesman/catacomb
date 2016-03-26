@@ -23,9 +23,6 @@ export class Spikes extends Item {
         if (!this.disabled) {
             this.animations.stop('active');
             this.frame = frames.spikes.disabled;
-
-            console.log('You disabled ' + this.name);
-
             this.disabled = true;
         }
     }

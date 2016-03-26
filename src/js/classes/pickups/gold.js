@@ -19,6 +19,6 @@ export class Gold extends Pickup {
         messageText = this.quantity > 1 ? `You found ${this.quantity} ${this.plural}` : `You found ${this.singular}`;
         message = new Message(this.game, messageText, frames.gold);
 
-        message.display(1000);
+        message.display();
     }
 }

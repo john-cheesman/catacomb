@@ -1,5 +1,6 @@
 import { Item } from '../item';
 import { Utility } from '../utility';
+import { Message } from '../message';
 import { animations, sprites } from '../../config';
 
 export class Switch extends Item {
@@ -39,6 +40,8 @@ export class Switch extends Item {
         for (let i = 0; i < spikes.length; i++) {
             spikes[i].disable();
         }
+
+        Message.create(this.game, 'You disabled the spikes');
     }
 
     static instantiateFromMapData(game, object) {

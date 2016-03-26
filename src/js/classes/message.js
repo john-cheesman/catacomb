@@ -42,12 +42,31 @@ export class Message {
 
     }
 
-    display(duration) {
+    display(duration = 2000) {
         this.game.add.existing(this.ground);
         this.game.add.existing(this.text);
 
         if (this.sprite) {
             this.game.add.existing(this.sprite);
         }
+
+        this.game.time.events.add(duration, this.hide, this);
+    }
+
+    hide() {
+        this.text.destroy();
+        this.ground.destroy();
+
+        if (this.sprite) {
+            this.sprite.destroy();
+        }
+    }
+
+    static create(game, text) {
+        let message;
+
+        message = new this(game, text);
+
+        message.display();
     }
 }
