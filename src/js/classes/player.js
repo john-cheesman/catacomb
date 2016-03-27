@@ -12,10 +12,10 @@ export class Player extends Phaser.Sprite {
         this.keyboard = this.game.input.keyboard;
 
         this.controls = {
-            up: Phaser.Keyboard.W,
-            down: Phaser.Keyboard.S,
-            left: Phaser.Keyboard.A,
-            right: Phaser.Keyboard.D
+            up: Phaser.Keyboard.UP,
+            down: Phaser.Keyboard.DOWN,
+            left: Phaser.Keyboard.LEFT,
+            right: Phaser.Keyboard.RIGHT
         };
 
         this.direction = direction;

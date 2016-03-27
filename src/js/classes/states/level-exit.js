@@ -1,4 +1,5 @@
 import { Utility } from '../utility';
+import { dimensions } from '../../config';
 
 export class LevelExit extends Phaser.State {
     init(completedLevelID) {
@@ -10,11 +11,31 @@ export class LevelExit extends Phaser.State {
         completedLevelData = Utility.filterArray(this.game.progress.levelsCompleted, 'id', completedLevelID)[0];
         formattedTime = Utility.displayTime(completedLevelData.time);
 
-        console.log(`Exited level ${completedLevelData.id} after ${formattedTime.minutes}:${formattedTime.seconds}`);
+        this.summary = `Exited level ${completedLevelData.id} after ${formattedTime.minutes}:${formattedTime.seconds}`;
+
         console.log('Pickups: ', completedLevelData.pickups);
     }
 
     create() {
+        let textWidth,
+            padding;
+
+        textWidth = (dimensions.gameWidth - dimensions.tileSize);
+        padding = dimensions.tileSize / 2;
+
+        this.game.add.text(padding, padding, this.summary, {
+            font: '16px Consolas',
+            fill: 'rgb(222, 238, 214)',
+            align: 'left',
+            wordWrap: true,
+            wordWrapWidth: textWidth
+        });
+
+        this.game.time.events.add(3000, this.loadNextLevel, this);
+
+    }
+
+    loadNextLevel() {
         let nextLevel;
 
         nextLevel = this.completedLevelID + 1;

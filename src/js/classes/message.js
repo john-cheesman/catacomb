@@ -42,7 +42,7 @@ export class Message {
 
     }
 
-    display(duration = 2000) {
+    display(duration = 1000) {
         this.game.add.existing(this.ground);
         this.game.add.existing(this.text);
 
