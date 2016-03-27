@@ -11,9 +11,7 @@ export class LevelExit extends Phaser.State {
         completedLevelData = Utility.filterArray(this.game.progress.levelsCompleted, 'id', completedLevelID)[0];
         formattedTime = Utility.displayTime(completedLevelData.time);
 
-        this.summary = `Exited level ${completedLevelData.id} after ${formattedTime.minutes}:${formattedTime.seconds}`;
-
-        console.log('Pickups: ', completedLevelData.pickups);
+        this.summary = `Finished level ${completedLevelData.id} after ${formattedTime.minutes}:${formattedTime.seconds}\nGems: ${completedLevelData.gems}\nGold: ${completedLevelData.gold}`;
     }
 
     create() {
@@ -32,7 +30,6 @@ export class LevelExit extends Phaser.State {
         });
 
         this.game.time.events.add(3000, this.loadNextLevel, this);
-
     }
 
     loadNextLevel() {

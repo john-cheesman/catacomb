@@ -1,7 +1,8 @@
 export class Pickup {
-    constructor(game, quantity) {
+    constructor(game, quantity, type) {
         this.game = game;
-        this.quantity = quantity;
+        this.quantity = parseInt(quantity, 10);
+        this.type = type;
     }
 
     collect() {

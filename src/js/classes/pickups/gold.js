@@ -4,7 +4,7 @@ import { frames } from '../../config';
 
 export class Gold extends Pickup {
     constructor(game, quantity) {
-        super(game, quantity);
+        super(game, quantity, 'Gold');
 
         this.singular = 'a piece of gold';
         this.plural = 'pieces of gold';

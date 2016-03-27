@@ -4,7 +4,7 @@ import { frames } from '../../config';
 
 export class Gem extends Pickup {
     constructor(game, quantity) {
-        super(game, quantity);
+        super(game, quantity, 'Gem');
 
         this.singular = 'a gem';
         this.plural = 'gems';
