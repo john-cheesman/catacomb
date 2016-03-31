@@ -23,7 +23,7 @@ export class LevelExit extends Phaser.State {
 
         this.game.add.text(padding, padding, this.summary, {
             font: '16px Consolas',
-            fill: colours.white,
+            fill: Phaser.Color.getWebRGB(colours.white),
             align: 'left',
             wordWrap: true,
             wordWrapWidth: textWidth

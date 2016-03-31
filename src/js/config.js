@@ -67,8 +67,8 @@ const levels = 2;
 const playerSpeed = 120;
 
 const colours = {
-    white: 'rgb(222, 238, 214)',
-    black: 'rgb(20, 12, 28)'
+    white: 0xdeeed6,
+    black: 0x140c1c
 };
 
 export { dimensions, sprites, animations, frames, levels, playerSpeed, colours }

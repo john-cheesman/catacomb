@@ -26,7 +26,7 @@ export class Message {
 
         this.text = new Phaser.Text(game, textX, textY, text, {
             font: '16px Consolas',
-            fill: colours.white,
+            fill: Phaser.Color.getWebRGB(colours.white),
             align: 'left',
             wordWrap: true,
             wordWrapWidth: textWidth
@@ -37,7 +37,7 @@ export class Message {
 
         this.text.lineSpacing = -6;
 
-        this.ground.beginFill(0x140c1c, 0.85);
+        this.ground.beginFill(colours.black, 0.85);
         this.ground.drawRect(0, (dimensions.gameHeight - (dimensions.tileSize * 2)), dimensions.gameWidth, (dimensions.tileSize * 2));
 
     }
