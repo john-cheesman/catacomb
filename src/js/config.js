@@ -9,6 +9,11 @@ const sprites = {
         name: 'tiny32',
         key: 'map',
         path: '/images/tiny32.png'
+    },
+    spinner: {
+        name: 'pacman',
+        key: 'spinner',
+        path: '/images/pacman.png'
     }
 }
 
@@ -37,6 +42,9 @@ const animations = {
     switch: {
         throw: [48, 49, 66],
         reset: [66, 65, 48]
+    },
+    spinner: {
+        spin: [0, 1, 2, 3, 4, 5, 6, 7]
     }
 }
 
@@ -58,4 +66,9 @@ const levels = 2;
 
 const playerSpeed = 120;
 
-export { dimensions, sprites, animations, frames, levels, playerSpeed }
+const colours = {
+    white: 'rgb(222, 238, 214)',
+    black: 'rgb(20, 12, 28)'
+};
+
+export { dimensions, sprites, animations, frames, levels, playerSpeed, colours }

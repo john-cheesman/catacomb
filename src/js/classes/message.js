@@ -1,4 +1,4 @@
-import { sprites, dimensions } from '../config';
+import { sprites, dimensions, colours } from '../config';
 
 export class Message {
     constructor(game, text, frame, key = sprites.tileSet.key) {
@@ -26,7 +26,7 @@ export class Message {
 
         this.text = new Phaser.Text(game, textX, textY, text, {
             font: '16px Consolas',
-            fill: 'rgb(222, 238, 214)',
+            fill: colours.white,
             align: 'left',
             wordWrap: true,
             wordWrapWidth: textWidth
@@ -37,7 +37,7 @@ export class Message {
 
         this.text.lineSpacing = -6;
 
-        this.ground.beginFill(0x201228, 0.85);
+        this.ground.beginFill(0x140c1c, 0.85);
         this.ground.drawRect(0, (dimensions.gameHeight - (dimensions.tileSize * 2)), dimensions.gameWidth, (dimensions.tileSize * 2));
 
     }

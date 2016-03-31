@@ -1,5 +1,5 @@
 import { Utility } from '../utility';
-import { dimensions } from '../../config';
+import { dimensions, colours } from '../../config';
 
 export class LevelExit extends Phaser.State {
     init(completedLevelID) {
@@ -23,7 +23,7 @@ export class LevelExit extends Phaser.State {
 
         this.game.add.text(padding, padding, this.summary, {
             font: '16px Consolas',
-            fill: 'rgb(222, 238, 214)',
+            fill: colours.white,
             align: 'left',
             wordWrap: true,
             wordWrapWidth: textWidth
