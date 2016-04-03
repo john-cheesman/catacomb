@@ -11,29 +11,33 @@ export class Game extends Phaser.Game {
     constructor() {
         super(dimensions.gameWidth, dimensions.gameHeight, Phaser.AUTO, 'gameScreen');
 
-        this.progress = {
-            levels: []
-        };
+        this.progress = Utility.loadGame();
 
-        for (let i = 0; i < levelData.length; i++) {
-            this.progress.levels.push({
-                id: (i + 1),
-                best: {
-                    time: null,
-                    gems: 0,
-                    gold: 0
-                },
-                latest: {
-                    time: null,
-                    gems: 0,
-                    gold: 0
-                },
-                unlocked: false,
-                complete: false
-            });
+        if (!this.progress) {
+            this.progress = {
+                levels: []
+            };
+
+            for (let i = 0; i < levelData.length; i++) {
+                this.progress.levels.push({
+                    id: (i + 1),
+                    best: {
+                        time: null,
+                        gems: 0,
+                        gold: 0
+                    },
+                    latest: {
+                        time: null,
+                        gems: 0,
+                        gold: 0
+                    },
+                    unlocked: false,
+                    complete: false
+                });
+            }
+
+            this.progress.levels[0].unlocked = true;
         }
-
-        this.progress.levels[0].unlocked = true;
 
         this.state.add('Boot', Boot);
 
@@ -80,6 +84,8 @@ export class Game extends Phaser.Game {
         if (nextLevel) {
             nextLevel.unlocked = true;
         }
+
+        Utility.saveGame(this.progress);
     }
 };
 

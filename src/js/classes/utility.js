@@ -22,6 +22,22 @@ export class Utility {
             seconds: pad(roundedSeconds % 60)
         };
     }
+
+    static saveGame(progress) {
+        let json;
+
+        json = JSON.stringify(progress);
+
+        localStorage.setItem('catacomb-save', json);
+    }
+
+    static loadGame() {
+        let json;
+
+        json = localStorage.getItem('catacomb-save');
+
+        return JSON.parse(json);
+    }
 }
 
 function pad(val) {
