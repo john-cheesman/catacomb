@@ -62,13 +62,25 @@ const frames = {
     gems: 154
 }
 
-const levels = 2;
+const levelData = [
+    {
+        levelID: 1,
+        gems: 1,
+        gold: 0
+    },
+    {
+        levelID: 2,
+        gems: 0,
+        gold: 5
+    }
+];
 
 const playerSpeed = 120;
 
 const colours = {
     white: 0xdeeed6,
-    black: 0x140c1c
+    black: 0x140c1c,
+    blue: 0x597dce
 };
 
-export { dimensions, sprites, animations, frames, levels, playerSpeed, colours }
+export { dimensions, sprites, animations, frames, levelData, playerSpeed, colours }

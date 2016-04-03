@@ -1,25 +1,32 @@
+import { Menu } from '../menu';
 import { Utility } from '../utility';
-import { dimensions, colours } from '../../config';
+import { dimensions, colours, levelData } from '../../config';
 
 export class LevelExit extends Phaser.State {
     init(completedLevelID) {
         let completedLevelData,
+            currentLevelData,
             formattedTime;
 
         this.completedLevelID = completedLevelID;
 
-        completedLevelData = Utility.filterArray(this.game.progress.levelsCompleted, 'id', completedLevelID)[0];
+        completedLevelData = this.game.progress.levels[(completedLevelID - 1)].latest;
+        currentLevelData = levelData[(completedLevelID - 1)];
         formattedTime = Utility.displayTime(completedLevelData.time);
 
-        this.summary = `Finished level ${completedLevelData.id} after ${formattedTime.minutes}:${formattedTime.seconds}\nGems: ${completedLevelData.gems}\nGold: ${completedLevelData.gold}`;
+        this.summary = `Finished level ${completedLevelID} after ${formattedTime.minutes}:${formattedTime.seconds}\nGems: ${completedLevelData.gems}/${currentLevelData.gems}\nGold: ${completedLevelData.gold}/${currentLevelData.gold}`;
     }
 
     create() {
         let textWidth,
-            padding;
+            padding,
+            menuOptions,
+            nextLevelOption,
+            replayOption,
+            mainMenuOption;
 
         textWidth = (dimensions.gameWidth - dimensions.tileSize);
-        padding = dimensions.tileSize / 2;
+        padding = (dimensions.tileSize / 2);
 
         this.game.add.text(padding, padding, this.summary, {
             font: '16px Consolas',
@@ -29,14 +36,32 @@ export class LevelExit extends Phaser.State {
             wordWrapWidth: textWidth
         });
 
-        this.game.time.events.add(3000, this.loadNextLevel, this);
-    }
+        menuOptions = [];
 
-    loadNextLevel() {
-        let nextLevel;
+        nextLevelOption = {
+            text: 'Next level',
+            targetState: `Level${(this.completedLevelID + 1)}`
+        };
 
-        nextLevel = this.completedLevelID + 1;
+        replayOption = {
+            text: 'Replay',
+            targetState: `Level${this.completedLevelID}`
+        }
 
-        this.state.start(`Level${nextLevel}`);
+        mainMenuOption = {
+            text: 'Main menu',
+            targetState: 'MainMenu'
+        }
+
+        if (this.completedLevelID < levelData.length) {
+            menuOptions.push(nextLevelOption);
+        }
+
+        menuOptions.push(replayOption);
+        menuOptions.push(mainMenuOption);
+
+        this.menu = new Menu(this.game, (dimensions.tileSize / 2), (dimensions.tileSize * 5.5), menuOptions);
+
+        this.menu.create();
     }
 }

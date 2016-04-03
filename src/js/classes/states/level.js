@@ -11,7 +11,6 @@ export class Level extends Phaser.State {
         this.tileMap = tileMap;
         this.tileMapPath = '/maps/' + tileMap + '.json';
         this.levelID = levelID;
-        this.pickups = [];
     }
 
     preload() {
@@ -19,6 +18,8 @@ export class Level extends Phaser.State {
     }
 
     create() {
+        this.pickups = [];
+
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
 
         this.map = this.game.add.tilemap(this.tileMap);

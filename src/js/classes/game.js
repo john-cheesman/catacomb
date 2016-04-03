@@ -2,24 +2,50 @@ import { Boot } from './states/boot';
 import { Preloader } from './states/preloader';
 import { LevelExit } from './states/level-exit';
 import { Level } from './states/level';
+import { LevelMenu } from './states/level-menu';
+import { MainMenu } from './states/main-menu';
 import { Utility } from './utility';
-import { dimensions, levels } from '../config';
+import { dimensions, levelData } from '../config';
 
 export class Game extends Phaser.Game {
     constructor() {
         super(dimensions.gameWidth, dimensions.gameHeight, Phaser.AUTO, 'gameScreen');
 
         this.progress = {
-            levelsCompleted: []
+            levels: []
         };
+
+        for (let i = 0; i < levelData.length; i++) {
+            this.progress.levels.push({
+                id: (i + 1),
+                best: {
+                    time: null,
+                    gems: 0,
+                    gold: 0
+                },
+                latest: {
+                    time: null,
+                    gems: 0,
+                    gold: 0
+                },
+                unlocked: false,
+                complete: false
+            });
+        }
+
+        this.progress.levels[0].unlocked = true;
 
         this.state.add('Boot', Boot);
 
         this.state.add('Preloader', Preloader);
 
+        this.state.add('MainMenu', MainMenu);
+
+        this.state.add('LevelMenu', LevelMenu);
+
         this.state.add('LevelExit', LevelExit);
 
-        for (let i = 1; i <= levels; i++) {
+        for (let i = 1; i <= levelData.length; i++) {
             this.state.add(`Level${i}`, () => {
                 return new Level(`level${i}`, i);
             });
@@ -30,18 +56,30 @@ export class Game extends Phaser.Game {
 
     updateProgress(levelID, time, pickups) {
         let gems,
-            gold;
+            gold,
+            level,
+            nextLevel;
 
         gems = countPickups(pickups, 'Gem');
         gold = countPickups(pickups, 'Gold');
+        level = this.progress.levels[(levelID - 1)];
+        nextLevel = this.progress.levels[levelID];
 
-        this.progress.levelsCompleted.push({
-            id: levelID,
+        level.latest = {
             time: time,
-            pickups: pickups,
             gems: gems,
             gold: gold
-        });
+        };
+
+        level.best.time = (level.best.time > time || !level.best.time) ? time : level.best.time;
+        level.best.gems = (level.best.gems < gems) ? gems : level.best.gems;
+        level.best.gold = (level.best.gold < gold) ? gold : level.best.gold;
+
+        level.complete = true;
+
+        if (nextLevel) {
+            nextLevel.unlocked = true;
+        }
     }
 };
 
