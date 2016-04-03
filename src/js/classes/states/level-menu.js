@@ -16,7 +16,8 @@ export class LevelMenu extends Phaser.State {
             menuOptions,
             startOption,
             nextOption,
-            previousOption;
+            previousOption,
+            mainMenuOption;
 
         if (this.progress.complete) {
             time = Utility.displayTime(this.progress.best.time);
@@ -63,6 +64,11 @@ export class LevelMenu extends Phaser.State {
             params: (this.id - 1)
         };
 
+        mainMenuOption = {
+            text: 'Main menu',
+            targetState: 'MainMenu'
+        }
+
         if (this.progress.unlocked) {
             menuOptions.push(startOption);
         }
@@ -74,6 +80,8 @@ export class LevelMenu extends Phaser.State {
         if (this.id < levelData.length) {
             menuOptions.push(nextOption);
         }
+
+        menuOptions.push(mainMenuOption);
 
         this.menu = new Menu(this.game, (dimensions.tileSize / 2), (dimensions.tileSize * 5.5), menuOptions);
 

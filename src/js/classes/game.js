@@ -4,6 +4,7 @@ import { LevelExit } from './states/level-exit';
 import { Level } from './states/level';
 import { LevelMenu } from './states/level-menu';
 import { MainMenu } from './states/main-menu';
+import { Credits } from './states/credits';
 import { Utility } from './utility';
 import { dimensions, levelData } from '../config';
 
@@ -15,7 +16,8 @@ export class Game extends Phaser.Game {
 
         if (!this.progress) {
             this.progress = {
-                levels: []
+                levels: [],
+                levelReached: 1
             };
 
             for (let i = 0; i < levelData.length; i++) {
@@ -48,6 +50,8 @@ export class Game extends Phaser.Game {
         this.state.add('LevelMenu', LevelMenu);
 
         this.state.add('LevelExit', LevelExit);
+
+        this.state.add('Credits', Credits);
 
         for (let i = 1; i <= levelData.length; i++) {
             this.state.add(`Level${i}`, () => {
@@ -83,7 +87,10 @@ export class Game extends Phaser.Game {
 
         if (nextLevel) {
             nextLevel.unlocked = true;
+
+            this.progress.levelReached = (nextLevel.id > this.progress.levelReached) ? nextLevel.id : this.progress.levelReached;
         }
+
 
         Utility.saveGame(this.progress);
     }

@@ -13,9 +13,13 @@ export class MainMenu extends Phaser.State {
 
         this.menu = new Menu(this.game, (dimensions.tileSize / 2), (dimensions.tileSize * 5.5), [
             {
-                text: 'New game',
+                text: 'Levels',
                 targetState: 'LevelMenu',
-                params: 1
+                params: this.game.progress.levelReached
+            },
+            {
+                text: 'Credits',
+                targetState: 'Credits'
             }
         ]);
 
