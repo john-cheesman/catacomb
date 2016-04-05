@@ -72,6 +72,11 @@ const levelData = [
         levelID: 2,
         gems: 1,
         gold: 5
+    },
+    {
+        levelID: 3,
+        gems: 1,
+        gold: 10
     }
 ];
 
