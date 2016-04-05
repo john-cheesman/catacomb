@@ -70,7 +70,7 @@ const levelData = [
     },
     {
         levelID: 2,
-        gems: 0,
+        gems: 1,
         gold: 5
     }
 ];
