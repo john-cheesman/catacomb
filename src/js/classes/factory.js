@@ -7,6 +7,8 @@ import { Switch } from './items/switch';
 import { Gem } from './pickups/gem';
 import { Gold } from './pickups/gold';
 import { SpeedBoost } from './pickups/speed-boost';
+import { Ghost } from './enemies/ghost';
+import { Skeleton } from './enemies/skeleton';
 import { dimensions } from '../config';
 
 let objects;
@@ -20,7 +22,9 @@ objects = {
     Switch: Switch,
     Gem: Gem,
     Gold: Gold,
-    SpeedBoost: SpeedBoost
+    SpeedBoost: SpeedBoost,
+    Ghost: Ghost,
+    Skeleton: Skeleton
 };
 
 export class Factory {

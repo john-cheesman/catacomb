@@ -350,6 +350,22 @@
                  "width":32,
                  "x":352,
                  "y":160
+                }, 
+                {
+                 "gid":135,
+                 "height":32,
+                 "id":22,
+                 "name":"skeleton",
+                 "properties":
+                    {
+                     "direction":"down"
+                    },
+                 "rotation":0,
+                 "type":"Skeleton",
+                 "visible":true,
+                 "width":32,
+                 "x":480,
+                 "y":544
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -358,7 +374,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":22,
+ "nextobjectid":23,
  "orientation":"orthogonal",
  "properties":
     {

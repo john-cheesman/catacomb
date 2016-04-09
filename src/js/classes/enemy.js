@@ -1,6 +1,6 @@
 import { animations, frames, sprites, playerSpeed } from '../config';
 
-export class Ghost extends Phaser.Sprite {
+export class Enemy extends Phaser.Sprite {
     constructor(game, x, y, key, direction = 'down') {
         super(game, x, y, key);
 
@@ -12,8 +12,6 @@ export class Ghost extends Phaser.Sprite {
         this.direction = direction;
 
         this.immovable = true;
-
-        this.frame = frames.player[this.direction];
 
         this.speed = playerSpeed;
     }
@@ -29,6 +27,12 @@ export class Ghost extends Phaser.Sprite {
     }
 
     update() {
+        let currentState = this.game.state.getCurrentState();
+
+        this.game.physics.arcade.collide(this, currentState.subCollisionLayer, this.changeDirection, null, this);
+        this.game.physics.arcade.collide(this, currentState.superCollisionLayer, this.changeDirection, null, this);
+        this.game.physics.arcade.collide(this, currentState.superCollisionLayer, this.changeDirection, null, this);
+
         this.game.physics.arcade.collide(this.game.player, this, this.attackPlayer, null, this);
     }
 
@@ -42,12 +46,6 @@ export class Ghost extends Phaser.Sprite {
         newDirection = chooseDirection(this.direction);
 
         setDirection(newDirection, this);
-    }
-
-    resetPosition() {
-        this.x = this.startingPosition.x;
-        this.y = this.startingPosition.y;
-        this.direction = this.startingPosition.direction;
     }
 
     static instantiateFromMapData(game, object) {
