@@ -61,7 +61,8 @@ const frames = {
         up: 179,
         down: 131,
         left: 147,
-        right: 163
+        right: 163,
+        dead: 186
     },
     ghost: {
         up: 246,

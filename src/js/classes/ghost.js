@@ -33,9 +33,7 @@ export class Ghost extends Phaser.Sprite {
     }
 
     attackPlayer() {
-        let currentState = this.game.state.getCurrentState();
-
-        this.game.state.start('GameOver', true, false, currentState.levelID);
+        this.game.player.die();
     }
 
     changeDirection() {

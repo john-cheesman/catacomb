@@ -18,12 +18,6 @@ export class Player extends Phaser.Sprite {
             right: Phaser.Keyboard.RIGHT
         };
 
-        this.startingPosition = {
-            x: x,
-            y: y,
-            direction: direction
-        };
-
         this.direction = direction;
 
         this.frame = frames.player[this.direction];
@@ -74,10 +68,10 @@ export class Player extends Phaser.Sprite {
         }
     }
 
-    resetPosition() {
-        this.x = this.startingPosition.x;
-        this.y = this.startingPosition.y;
-        this.direction = this.startingPosition.direction;
+    die() {
+        let currentState = this.game.state.getCurrentState();
+
+        this.game.state.start('GameOver', true, false, currentState.levelID);
     }
 
     static instantiateFromMapData(game, object) {
