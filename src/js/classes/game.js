@@ -3,6 +3,7 @@ import { Preloader } from './states/preloader';
 import { LevelExit } from './states/level-exit';
 import { Level } from './states/level';
 import { LevelMenu } from './states/level-menu';
+import { GameOver } from './states/game-over';
 import { MainMenu } from './states/main-menu';
 import { Credits } from './states/credits';
 import { Utility } from './utility';
@@ -50,6 +51,8 @@ export class Game extends Phaser.Game {
         this.state.add('LevelMenu', LevelMenu);
 
         this.state.add('LevelExit', LevelExit);
+
+        this.state.add('GameOver', GameOver);
 
         this.state.add('Credits', Credits);
 

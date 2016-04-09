@@ -34,7 +34,6 @@ export class Stairs extends Item {
         if (!this.hidden) {
             let currentState = this.game.state.getCurrentState();
 
-            //this.game.stateTransition.to(this.targetState, true, false, currentState.levelID);
             this.game.state.start(this.targetState, true, false, currentState.levelID);
         }
     }

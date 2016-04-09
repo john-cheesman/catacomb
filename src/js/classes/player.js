@@ -18,6 +18,12 @@ export class Player extends Phaser.Sprite {
             right: Phaser.Keyboard.RIGHT
         };
 
+        this.startingPosition = {
+            x: x,
+            y: y,
+            direction: direction
+        };
+
         this.direction = direction;
 
         this.frame = frames.player[this.direction];
@@ -66,6 +72,12 @@ export class Player extends Phaser.Sprite {
             this.animations.stop();
             this.frame = frames.player[this.direction];
         }
+    }
+
+    resetPosition() {
+        this.x = this.startingPosition.x;
+        this.y = this.startingPosition.y;
+        this.direction = this.startingPosition.direction;
     }
 
     static instantiateFromMapData(game, object) {

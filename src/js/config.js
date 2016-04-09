@@ -26,6 +26,14 @@ const animations = {
             right: [164, 163, 165, 163]
         }
     },
+    ghost: {
+        float: {
+            up: [246, 247, 246, 248],
+            down: [198, 199, 198, 200],
+            left: [214, 215, 214, 216],
+            right: [230, 231, 230, 232]
+        }
+    },
     fire: {
         flame: [96, 97, 98, 97]
     },
@@ -54,6 +62,12 @@ const frames = {
         down: 131,
         left: 147,
         right: 163
+    },
+    ghost: {
+        up: 246,
+        down: 198,
+        left: 214,
+        right: 230
     },
     spikes: {
         disabled: 157

@@ -260,7 +260,7 @@
                  "name":"player",
                  "properties":
                     {
-                     "direction":"up"
+                     "direction":"down"
                     },
                  "rotation":0,
                  "type":"Player",
@@ -334,6 +334,22 @@
                  "width":32,
                  "x":128,
                  "y":448
+                }, 
+                {
+                 "gid":199,
+                 "height":32,
+                 "id":21,
+                 "name":"ghost",
+                 "properties":
+                    {
+                     "direction":"down"
+                    },
+                 "rotation":0,
+                 "type":"Ghost",
+                 "visible":true,
+                 "width":32,
+                 "x":352,
+                 "y":160
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -342,7 +358,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":21,
+ "nextobjectid":22,
  "orientation":"orthogonal",
  "properties":
     {
