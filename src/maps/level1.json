@@ -70,6 +70,11 @@
                      "contents":"Gem",
                      "frame":"36"
                     },
+                 "propertytypes":
+                    {
+                     "contents":"string",
+                     "frame":"string"
+                    },
                  "rotation":0,
                  "type":"Chest",
                  "visible":true,
@@ -84,7 +89,13 @@
                  "name":"torch1",
                  "properties":
                     {
+                     "colour":"yellow",
                      "frame":"206"
+                    },
+                 "propertytypes":
+                    {
+                     "colour":"string",
+                     "frame":"string"
                     },
                  "rotation":0,
                  "type":"Torch",
@@ -104,6 +115,12 @@
                      "frame":"121",
                      "targetState":"MainMenu"
                     },
+                 "propertytypes":
+                    {
+                     "flipX":"string",
+                     "frame":"string",
+                     "targetState":"string"
+                    },
                  "rotation":0,
                  "type":"Stairs",
                  "visible":true,
@@ -121,6 +138,11 @@
                      "frame":"122",
                      "targetState":"LevelExit"
                     },
+                 "propertytypes":
+                    {
+                     "frame":"string",
+                     "targetState":"string"
+                    },
                  "rotation":0,
                  "type":"Stairs",
                  "visible":true,
@@ -135,14 +157,20 @@
                  "name":"torch2",
                  "properties":
                     {
+                     "colour":"yellow",
                      "frame":"206"
+                    },
+                 "propertytypes":
+                    {
+                     "colour":"string",
+                     "frame":"string"
                     },
                  "rotation":0,
                  "type":"Torch",
                  "visible":true,
                  "width":32,
-                 "x":32,
-                 "y":608
+                 "x":-352,
+                 "y":654
                 }, 
                 {
                  "gid":132,
@@ -152,6 +180,10 @@
                  "properties":
                     {
                      "direction":"up"
+                    },
+                 "propertytypes":
+                    {
+                     "direction":"string"
                     },
                  "rotation":0,
                  "type":"Player",
@@ -167,7 +199,13 @@
                  "name":"torch3",
                  "properties":
                     {
+                     "colour":"yellow",
                      "frame":"206"
+                    },
+                 "propertytypes":
+                    {
+                     "colour":"string",
+                     "frame":"string"
                     },
                  "rotation":0,
                  "type":"Torch",
@@ -185,40 +223,30 @@
         }],
  "nextobjectid":13,
  "orientation":"orthogonal",
- "properties":
-    {
-
-    },
  "renderorder":"right-down",
  "tileheight":32,
  "tilesets":[
         {
+         "columns":16,
          "firstgid":1,
          "image":"..\/..\/..\/combat\/web\/images\/tiny32.png",
          "imageheight":512,
          "imagewidth":512,
          "margin":0,
          "name":"tiny32",
-         "properties":
-            {
-
-            },
          "spacing":0,
          "tilecount":256,
          "tileheight":32,
          "tilewidth":32
         }, 
         {
+         "columns":16,
          "firstgid":257,
          "image":"..\/..\/..\/combat\/src\/images\/tiny32.png",
          "imageheight":512,
          "imagewidth":512,
          "margin":0,
          "name":"tiny32",
-         "properties":
-            {
-
-            },
          "spacing":0,
          "tilecount":256,
          "tileheight":32,

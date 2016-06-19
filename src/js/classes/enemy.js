@@ -40,7 +40,7 @@ export class Enemy extends Phaser.Sprite {
         this.game.player.die();
     }
 
-    changeDirection() {
+    changeDirection(a, b) {
         let newDirection;
 
         newDirection = chooseDirection(this.direction);

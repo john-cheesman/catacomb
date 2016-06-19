@@ -71,6 +71,12 @@
                      "frame":"36",
                      "quantity":"5"
                     },
+                 "propertytypes":
+                    {
+                     "contents":"string",
+                     "frame":"string",
+                     "quantity":"string"
+                    },
                  "rotation":0,
                  "type":"Chest",
                  "visible":true,
@@ -85,7 +91,13 @@
                  "name":"torch1",
                  "properties":
                     {
+                     "colour":"yellow",
                      "frame":"206"
+                    },
+                 "propertytypes":
+                    {
+                     "colour":"string",
+                     "frame":"string"
                     },
                  "rotation":0,
                  "type":"Torch",
@@ -105,6 +117,12 @@
                      "frame":"121",
                      "targetState":"MainMenu"
                     },
+                 "propertytypes":
+                    {
+                     "flipX":"string",
+                     "frame":"string",
+                     "targetState":"string"
+                    },
                  "rotation":0,
                  "type":"Stairs",
                  "visible":true,
@@ -121,6 +139,11 @@
                     {
                      "frame":"122",
                      "targetState":"LevelExit"
+                    },
+                 "propertytypes":
+                    {
+                     "frame":"string",
+                     "targetState":"string"
                     },
                  "rotation":0,
                  "type":"Stairs",
@@ -140,6 +163,12 @@
                      "frame":"157",
                      "group":"spikes"
                     },
+                 "propertytypes":
+                    {
+                     "disabled":"string",
+                     "frame":"string",
+                     "group":"string"
+                    },
                  "rotation":0,
                  "type":"Spikes",
                  "visible":true,
@@ -157,6 +186,12 @@
                      "disabled":"false",
                      "frame":"157",
                      "group":"spikes"
+                    },
+                 "propertytypes":
+                    {
+                     "disabled":"string",
+                     "frame":"string",
+                     "group":"string"
                     },
                  "rotation":0,
                  "type":"Spikes",
@@ -176,6 +211,12 @@
                      "frame":"157",
                      "group":"spikes"
                     },
+                 "propertytypes":
+                    {
+                     "disabled":"string",
+                     "frame":"string",
+                     "group":"string"
+                    },
                  "rotation":0,
                  "type":"Spikes",
                  "visible":true,
@@ -193,6 +234,12 @@
                      "disabled":"false",
                      "frame":"157",
                      "group":"spikes"
+                    },
+                 "propertytypes":
+                    {
+                     "disabled":"string",
+                     "frame":"string",
+                     "group":"string"
                     },
                  "rotation":0,
                  "type":"Spikes",
@@ -212,6 +259,12 @@
                      "frame":"48",
                      "thrown":"false"
                     },
+                 "propertytypes":
+                    {
+                     "action":"string",
+                     "frame":"string",
+                     "thrown":"string"
+                    },
                  "rotation":0,
                  "type":"Switch",
                  "visible":true,
@@ -228,6 +281,11 @@
                     {
                      "contents":"SpeedBoost",
                      "frame":"36"
+                    },
+                 "propertytypes":
+                    {
+                     "contents":"string",
+                     "frame":"string"
                     },
                  "rotation":0,
                  "type":"Chest",
@@ -246,6 +304,11 @@
                      "contents":"Gem",
                      "frame":"36"
                     },
+                 "propertytypes":
+                    {
+                     "contents":"string",
+                     "frame":"string"
+                    },
                  "rotation":0,
                  "type":"Chest",
                  "visible":true,
@@ -262,6 +325,10 @@
                     {
                      "direction":"down"
                     },
+                 "propertytypes":
+                    {
+                     "direction":"string"
+                    },
                  "rotation":0,
                  "type":"Player",
                  "visible":true,
@@ -276,7 +343,13 @@
                  "name":"torch2",
                  "properties":
                     {
+                     "colour":"yellow",
                      "frame":"206"
+                    },
+                 "propertytypes":
+                    {
+                     "colour":"string",
+                     "frame":"string"
                     },
                  "rotation":0,
                  "type":"Torch",
@@ -292,7 +365,13 @@
                  "name":"torch3",
                  "properties":
                     {
+                     "colour":"yellow",
                      "frame":"206"
+                    },
+                 "propertytypes":
+                    {
+                     "colour":"string",
+                     "frame":"string"
                     },
                  "rotation":0,
                  "type":"Torch",
@@ -308,7 +387,13 @@
                  "name":"torch4",
                  "properties":
                     {
+                     "colour":"yellow",
                      "frame":"206"
+                    },
+                 "propertytypes":
+                    {
+                     "colour":"string",
+                     "frame":"string"
                     },
                  "rotation":0,
                  "type":"Torch",
@@ -328,6 +413,12 @@
                      "frame":"36",
                      "quantity":"5"
                     },
+                 "propertytypes":
+                    {
+                     "contents":"string",
+                     "frame":"string",
+                     "quantity":"string"
+                    },
                  "rotation":0,
                  "type":"Chest",
                  "visible":true,
@@ -343,6 +434,10 @@
                  "properties":
                     {
                      "direction":"down"
+                    },
+                 "propertytypes":
+                    {
+                     "direction":"string"
                     },
                  "rotation":0,
                  "type":"Ghost",
@@ -360,12 +455,16 @@
                     {
                      "direction":"down"
                     },
+                 "propertytypes":
+                    {
+                     "direction":"string"
+                    },
                  "rotation":0,
                  "type":"Skeleton",
                  "visible":true,
                  "width":32,
-                 "x":480,
-                 "y":544
+                 "x":384,
+                 "y":480
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -376,40 +475,30 @@
         }],
  "nextobjectid":23,
  "orientation":"orthogonal",
- "properties":
-    {
-
-    },
  "renderorder":"right-down",
  "tileheight":32,
  "tilesets":[
         {
+         "columns":16,
          "firstgid":1,
          "image":"..\/..\/..\/combat\/web\/images\/tiny32.png",
          "imageheight":512,
          "imagewidth":512,
          "margin":0,
          "name":"tiny32",
-         "properties":
-            {
-
-            },
          "spacing":0,
          "tilecount":256,
          "tileheight":32,
          "tilewidth":32
         }, 
         {
+         "columns":16,
          "firstgid":257,
          "image":"..\/..\/..\/combat\/src\/images\/tiny32.png",
          "imageheight":512,
          "imagewidth":512,
          "margin":0,
          "name":"tiny32",
-         "properties":
-            {
-
-            },
          "spacing":0,
          "tilecount":256,
          "tileheight":32,

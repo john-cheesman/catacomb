@@ -1,6 +1,6 @@
 import { Menu } from '../menu';
 import { Utility } from '../utility';
-import { dimensions, colours, levelData } from '../../config';
+import { dimensions, colours, levelData, sprites, animations } from '../../config';
 
 export class LevelExit extends Phaser.State {
     init(completedLevelID) {
@@ -20,6 +20,7 @@ export class LevelExit extends Phaser.State {
     create() {
         let textWidth,
             padding,
+            playerSprite,
             menuOptions,
             nextLevelOption,
             replayOption,
@@ -35,6 +36,14 @@ export class LevelExit extends Phaser.State {
             wordWrap: true,
             wordWrapWidth: textWidth
         });
+
+        playerSprite = this.game.add.sprite((dimensions.gameWidth - padding), (dimensions.gameHeight - padding), sprites.tileSet.key);
+
+        playerSprite.animations.add('down', animations.player.walk.down, 10, true);
+
+        playerSprite.animations.play('down');
+
+        playerSprite.anchor.set(1);
 
         menuOptions = [];
 

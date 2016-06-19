@@ -17,6 +17,7 @@ export class Spikes extends Item {
 
     update() {
         this.game.physics.arcade.collide(this.game.player, this, null, this.checkIfEnabled, this);
+        this.game.physics.arcade.collide(this.game.enemies, this, this.hitByEnemy, this.checkIfEnabled, this);
     }
 
     disable() {
@@ -33,6 +34,11 @@ export class Spikes extends Item {
         }
 
         return false;
+    }
+
+    hitByEnemy(spikes, enemy) {
+        console.log(spikes, enemy);
+        enemy.changeDirection();
     }
 
     static instantiateFromMapData(game, object) {

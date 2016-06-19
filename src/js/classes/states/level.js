@@ -19,6 +19,8 @@ export class Level extends Phaser.State {
     }
 
     create() {
+        let playerData;
+
         this.pickups = [];
 
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -40,6 +42,9 @@ export class Level extends Phaser.State {
 
         this.objects = Factory.getObjectsFromMapLayer(this.map, 'objectLayer');
 
+        this.game.enemies = this.game.add.physicsGroup();
+        this.game.enemies.z = 1000;
+
         for (let i = 0; i < this.objects.length; i++) {
             if (this.objects[i].type != 'Player') {
                 let object,
@@ -52,16 +57,19 @@ export class Level extends Phaser.State {
                 objectInstance = classType.instantiateFromMapData(this.game, object);
 
                 objectInstance.create();
+
+                if (isEnemy(object)) {
+                    this.game.enemies.add(objectInstance);
+                }
             }
         }
-
-        let playerData;
 
         playerData = Utility.filterArray(this.objects, 'type', 'Player')[0];
 
         this.game.player = new Player(this.game, playerData.x, playerData.y, sprites.tileSet.key, playerData.direction);
 
         this.game.player.create();
+        this.game.player.z = 2000;
 
         this.time.reset();
     }
@@ -74,4 +82,8 @@ export class Level extends Phaser.State {
     shutdown() {
         this.game.updateProgress(this.levelID, this.time.totalElapsedSeconds(), this.pickups);
     }
+}
+
+function isEnemy(object) {
+    return (object.type === 'Ghost' || object.type === 'Skeleton');
 }
