@@ -1,3 +1,3 @@
-import {Game} from './classes/game';
+import { Game } from './classes/game';
 
 new Game();

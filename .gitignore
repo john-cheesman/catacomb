@@ -1,4 +1,7 @@
+npm-debug.log
 node_modules
 web/js
 web/images
 web/maps
+dist/js
+.env

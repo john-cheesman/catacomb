@@ -1,3 +1,5 @@
+/// <reference path="../../../node_modules/phaser/typescript/phaser.d.ts" />
+
 import { Boot } from './states/boot';
 import { Preloader } from './states/preloader';
 import { LevelExit } from './states/level-exit';
@@ -7,6 +9,8 @@ import { GameOver } from './states/game-over';
 import { MainMenu } from './states/main-menu';
 import { Credits } from './states/credits';
 import { Utility } from './utility';
+import Progress from './progress';
+import LevelProgress from './level-progress';
 import { dimensions, levelData } from '../config';
 
 export class Game extends Phaser.Game {
@@ -16,27 +20,10 @@ export class Game extends Phaser.Game {
         this.progress = Utility.loadGame();
 
         if (!this.progress) {
-            this.progress = {
-                levels: [],
-                levelReached: 1
-            };
+            this.progress = new Progress();
 
             for (let i = 0; i < levelData.length; i++) {
-                this.progress.levels.push({
-                    id: (i + 1),
-                    best: {
-                        time: null,
-                        gems: 0,
-                        gold: 0
-                    },
-                    latest: {
-                        time: null,
-                        gems: 0,
-                        gold: 0
-                    },
-                    unlocked: false,
-                    complete: false
-                });
+                this.progress.levels.push(new LevelProgress(i + 1));
             }
 
             this.progress.levels[0].unlocked = true;
@@ -64,6 +51,8 @@ export class Game extends Phaser.Game {
 
         this.state.start('Boot');
     }
+
+    public progress: Progress;
 
     updateProgress(levelID, time, pickups) {
         let gems,
