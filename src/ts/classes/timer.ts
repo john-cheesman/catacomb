@@ -1,6 +1,6 @@
-import { Utility } from './utility';
+import Utility from './utility';
 
-export class Timer extends Phaser.Time {
+export default class Timer extends Phaser.Time {
     displayTime() {
         return Utility.displayTime(this.totalSeconds);
     }

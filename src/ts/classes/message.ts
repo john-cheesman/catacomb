@@ -1,6 +1,6 @@
 import { sprites, dimensions, colours } from '../config';
 
-export class Message {
+export default class Message {
     constructor(game, text, frame, key = sprites.tileSet.key) {
         let textX,
             textY,

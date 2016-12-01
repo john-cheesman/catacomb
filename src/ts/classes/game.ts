@@ -1,19 +1,21 @@
 /// <reference path="../../../node_modules/phaser/typescript/phaser.d.ts" />
 
-import { Boot } from './states/boot';
-import { Preloader } from './states/preloader';
-import { LevelExit } from './states/level-exit';
-import { Level } from './states/level';
-import { LevelMenu } from './states/level-menu';
-import { GameOver } from './states/game-over';
-import { MainMenu } from './states/main-menu';
-import { Credits } from './states/credits';
-import { Utility } from './utility';
+import Boot from './states/boot';
+import Preloader from './states/preloader';
+import LevelExit from './states/level-exit';
+import Level from './states/level';
+import LevelMenu from './states/level-menu';
+import GameOver from './states/game-over';
+import MainMenu from './states/main-menu';
+import Credits from './states/credits';
+import Player from './player';
+import Pickup from './pickup';
+import Utility from './utility';
 import Progress from './progress';
 import LevelProgress from './level-progress';
 import { dimensions, levelData } from '../config';
 
-export class Game extends Phaser.Game {
+export default class Game extends Phaser.Game {
     constructor() {
         super(dimensions.gameWidth, dimensions.gameHeight, Phaser.AUTO, 'gameScreen');
 
@@ -52,13 +54,17 @@ export class Game extends Phaser.Game {
         this.state.start('Boot');
     }
 
+    public player: Player;
+
+    public enemies: Phaser.Group;
+
     public progress: Progress;
 
-    updateProgress(levelID, time, pickups) {
-        let gems,
-            gold,
-            level,
-            nextLevel;
+    public updateProgress(levelID: number, time: number, pickups: Pickup[]) {
+        let gems: number,
+            gold: number,
+            level: LevelProgress,
+            nextLevel: LevelProgress;
 
         gems = countPickups(pickups, 'Gem');
         gold = countPickups(pickups, 'Gold');
@@ -88,7 +94,7 @@ export class Game extends Phaser.Game {
     }
 };
 
-function countPickups(pickups, type) {
+function countPickups(pickups: Pickup[], type) {
     let i,
         pickupArray,
         count;

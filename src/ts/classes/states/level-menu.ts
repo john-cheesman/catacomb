@@ -1,8 +1,8 @@
-import { Menu } from '../menu';
-import { Utility } from '../utility';
+import Menu from '../menu';
+import Utility from '../utility';
 import { colours, dimensions, levelData } from '../../config';
 
-export class LevelMenu extends Phaser.State {
+export default class LevelMenu extends Phaser.State {
     init(levelID) {
         this.id = levelID;
         this.levelData = levelData[(levelID - 1)];

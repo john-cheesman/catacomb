@@ -1,4 +1,4 @@
-export class Pickup {
+export default class Pickup {
     constructor(game, quantity, type) {
         this.game = game;
         this.quantity = parseInt(quantity, 10);

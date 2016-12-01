@@ -1,8 +1,8 @@
-import { Menu } from '../menu';
-import { Utility } from '../utility';
+import Menu from '../menu';
+import Utility from '../utility';
 import { dimensions, colours, levelData, sprites, frames } from '../../config';
 
-export class GameOver extends Phaser.State {
+export default class GameOver extends Phaser.State {
     init(levelID) {
         this.levelID = levelID;
     }

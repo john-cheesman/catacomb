@@ -1,6 +1,6 @@
 import { colours } from '../config';
 
-let textStyle;
+let textStyle: any;
 
 textStyle = {
     default: {
@@ -15,7 +15,7 @@ textStyle = {
     }
 }
 
-export class MenuItem extends Phaser.Text {
+export default class MenuItem extends Phaser.Text {
     constructor(game, x, y, text, targetState, params = null, focused = false) {
         super(game, x, y, text, textStyle.default);
 

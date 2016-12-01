@@ -1,7 +1,7 @@
-import { MenuItem } from './menu-item';
+import MenuItem from './menu-item';
 import { colours, dimensions } from '../config';
 
-export class Menu {
+export default class Menu {
     constructor(game, x, y, options) {
         this.game = game;
         this.x = x;

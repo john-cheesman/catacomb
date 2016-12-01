@@ -1,7 +1,7 @@
-import {Item} from '../item';
-import {animations, sprites} from '../../config';
+import Item from '../item';
+import { animations, sprites } from '../../config';
 
-export class Torch extends Item {
+export default class Torch extends Item {
     constructor(game, x, y, key, frame, name, group, flipX, flipY, immovable, colour) {
         super(game, x, y, key, frame, name, group, flipX, flipY, immovable);
 

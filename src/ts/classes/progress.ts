@@ -1,8 +1,8 @@
-import Level from './level';
+import LevelProgress from './level-progress';
 
 export default class Progress {
     constructor(
-        public levels: Level[] = new Array<Level>(),
-        public LevelReached: number = 1) {
+        public levels: LevelProgress[] = new Array<LevelProgress>(),
+        public levelReached: number = 1) {
     }
 }

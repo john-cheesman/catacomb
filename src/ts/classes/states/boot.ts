@@ -1,6 +1,6 @@
 import { dimensions, sprites, colours } from '../../config';
 
-export class Boot extends Phaser.State {
+export default class Boot extends Phaser.State {
     constructor(game) {
         super(game);
     }

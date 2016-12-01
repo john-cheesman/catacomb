@@ -1,7 +1,7 @@
-import { Menu } from '../menu';
+import Menu from '../menu';
 import { colours, dimensions } from '../../config';
 
-export class Credits extends Phaser.State {
+export default class Credits extends Phaser.State {
     create() {
         let creditsBody;
 

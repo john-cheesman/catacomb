@@ -1,6 +1,6 @@
-import {sprites, dimensions} from '../config';
+import { sprites, dimensions } from '../config';
 
-export class Item extends Phaser.Sprite {
+export default class Item extends Phaser.Sprite {
     constructor(game, x, y, key, frame, name, group, flipX = false, flipY = false, immovable = true) {
         super(game, x, y, key, frame);
 

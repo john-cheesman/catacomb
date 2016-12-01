@@ -1,6 +1,6 @@
-import {dimensions, sprites, animations} from '../../config';
+import { dimensions, sprites, animations } from '../../config';
 
-export class Preloader extends Phaser.State {
+export default class Preloader extends Phaser.State {
     constructor(game) {
         super(game);
     }

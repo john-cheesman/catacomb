@@ -1,9 +1,9 @@
-import { Item } from '../item';
-import { Utility } from '../utility';
-import { Message } from '../message';
+import Item from '../item';
+import Utility from '../utility';
+import Message from '../message';
 import { animations, sprites } from '../../config';
 
-export class Switch extends Item {
+export default class Switch extends Item {
     constructor(game, x, y, key, frame, name, group, flipX, flipY, immovable, action, thrown = false) {
         super(game, x, y, key, frame, name, group, flipX, flipY, immovable);
 

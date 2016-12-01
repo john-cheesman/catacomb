@@ -1,7 +1,7 @@
-import {Item} from '../item';
-import {sprites, dimensions} from '../../config';
+import Item from '../item';
+import { sprites, dimensions } from '../../config';
 
-export class Stairs extends Item {
+export default class Stairs extends Item {
     constructor(
         game,
         x,

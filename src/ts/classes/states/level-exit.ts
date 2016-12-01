@@ -1,8 +1,8 @@
-import { Menu } from '../menu';
-import { Utility } from '../utility';
+import Menu from '../menu';
+import Utility from '../utility';
 import { dimensions, colours, levelData, sprites, animations } from '../../config';
 
-export class LevelExit extends Phaser.State {
+export default class LevelExit extends Phaser.State {
     init(completedLevelID) {
         let completedLevelData,
             currentLevelData,

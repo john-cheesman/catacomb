@@ -1,7 +1,7 @@
-import {Item} from '../item';
-import {animations, sprites, frames} from '../../config';
+import Item from '../item';
+import { animations, sprites, frames } from '../../config';
 
-export class Spikes extends Item {
+export default class Spikes extends Item {
     constructor(game, x, y, key, frame, name, group, flipX, flipY, immovable, disabled = false) {
         super(game, x, y, key, frame, name, group, flipX, flipY, immovable);
 

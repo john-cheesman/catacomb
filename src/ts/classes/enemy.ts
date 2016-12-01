@@ -1,7 +1,8 @@
+import Direction from '../enums/direction';
 import { animations, frames, sprites, playerSpeed } from '../config';
 
-export class Enemy extends Phaser.Sprite {
-    constructor(game, x, y, key, direction = 'down') {
+export default class Enemy extends Phaser.Sprite {
+    constructor(game: Phaser.Game, x: number, y: number, key: string, public direction: Direction = Direction.Down) {
         super(game, x, y, key);
 
         this.animations.add('up', animations.ghost.float.up, 10, true);
@@ -9,12 +10,14 @@ export class Enemy extends Phaser.Sprite {
         this.animations.add('down', animations.ghost.float.down, 10, true);
         this.animations.add('left', animations.ghost.float.left, 10, true);
 
-        this.direction = direction;
-
         this.immovable = true;
 
         this.speed = playerSpeed;
     }
+
+    public speed: number;
+
+    public immovable: boolean;
 
     create() {
         this.game.physics.arcade.enable(this);
@@ -40,8 +43,8 @@ export class Enemy extends Phaser.Sprite {
         this.game.player.die();
     }
 
-    changeDirection(a, b) {
-        let newDirection;
+    changeDirection() {
+        let newDirection: Direction;
 
         newDirection = chooseDirection(this.direction);
 
@@ -59,50 +62,46 @@ export class Enemy extends Phaser.Sprite {
     }
 }
 
-function chooseDirection(currentDirection) {
+function chooseDirection(currentDirection: Direction) {
     switch (currentDirection) {
-        case 'up':
-            return 'right';
-            break;
+        case Direction.Up:
+            return Direction.Right;
 
-        case 'down':
-            return 'left';
-            break;
+        case Direction.Down:
+            return Direction.Left;
 
-        case 'left':
-            return 'up';
-            break;
+        case Direction.Left:
+            return Direction.Up;
 
-        case 'right':
-            return 'down';
-            break;
+        case Direction.Right:
+            return Direction.Down;
 
         default:
             console.error(`${currentDirection} is not a valid direction`);
     }
 }
 
-function setDirection(direction, context) {
-    context.animations.play(direction);
+function setDirection(direction: Direction, context: Enemy) {
+    context.animations.play(direction.toString());
     context.direction = direction;
 
     switch (direction) {
-        case 'up':
+        case Direction.Up:
             context.body.velocity.y = context.speed * -1;
             context.body.velocity.x = 0;
             break;
 
-        case 'down':
+        case Direction.Down:
             context.body.velocity.y = context.speed * 1;
             context.body.velocity.x = 0;
             break;
 
-        case 'left':
+        case Direction.Left:
             context.body.velocity.y = 0;
             context.body.velocity.x = context.speed * -1;
             break;
 
-        case 'right':
+        case Direction.Right:
             context.body.velocity.y = 0;
             context.body.velocity.x = context.speed * 1;
             break;

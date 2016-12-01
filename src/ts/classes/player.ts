@@ -1,6 +1,6 @@
 import { animations, frames, sprites, playerSpeed } from '../config';
 
-export class Player extends Phaser.Sprite {
+export default class Player extends Phaser.Sprite {
     constructor(game, x, y, key, direction = 'down') {
         super(game, x, y, key);
 

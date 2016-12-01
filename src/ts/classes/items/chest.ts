@@ -1,8 +1,8 @@
-import { Item } from '../item';
-import { Factory } from '../factory';
+import Item from '../item';
+import Factory from '../factory';
 import { animations, sprites } from '../../config';
 
-export class Chest extends Item {
+export default class Chest extends Item {
     constructor(game, x, y, key, frame, name, group, flipX, flipY, immovable, contents, quantity = 1, opened = false) {
         super(game, x, y, key, frame, name, group, flipX, flipY, immovable);
 

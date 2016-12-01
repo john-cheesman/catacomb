@@ -1,7 +1,7 @@
-import { Menu } from '../menu';
+import Menu from '../menu';
 import { colours, dimensions } from '../../config';
 
-export class MainMenu extends Phaser.State {
+export default class MainMenu extends Phaser.State {
     create() {
         this.game.add.text((dimensions.tileSize / 2), (dimensions.tileSize / 2), 'Catacomb', {
             font: '20px Consolas',

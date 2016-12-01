@@ -1,17 +1,18 @@
-import { Factory } from '../factory';
-import { Player } from '../player';
-import { Ghost } from '../enemies/ghost';
-import { Timer } from '../timer';
-import { Utility } from '../utility';
+import Factory from '../factory';
+import Player from '../player';
+import Enemy from '../enemy';
+import Ghost from '../enemies/ghost';
+import Timer from '../timer';
+import Utility from '../utility';
 import { dimensions, sprites, frames } from '../../config';
 
-export class Level extends Phaser.State {
-    constructor(tileMap, levelID) {
+export default class Level extends Phaser.State {
+    constructor(public tileMap: string, public levelID: number) {
         super();
+    }
 
-        this.tileMap = tileMap;
-        this.tileMapPath = '/maps/' + tileMap + '.json';
-        this.levelID = levelID;
+    get tileMapPath(): string {
+        return `/maps/${this.tileMap}.json`;
     }
 
     preload() {
@@ -84,6 +85,6 @@ export class Level extends Phaser.State {
     }
 }
 
-function isEnemy(object) {
-    return (object.type === 'Ghost' || object.type === 'Skeleton');
+function isEnemy(object: any) {
+    return (object instanceof Enemy);
 }

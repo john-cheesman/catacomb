@@ -1,8 +1,8 @@
-import { Pickup } from '../pickup';
-import { Message } from '../message';
+import Pickup from '../pickup';
+import Message from '../message';
 import { frames } from '../../config';
 
-export class Gold extends Pickup {
+export default class Gold extends Pickup {
     constructor(game, quantity) {
         super(game, quantity, 'Gold');
 

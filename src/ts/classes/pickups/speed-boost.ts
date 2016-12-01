@@ -1,8 +1,8 @@
-import { Pickup } from '../pickup';
-import { Message } from '../message';
+import Pickup from '../pickup';
+import Message from '../message';
 import { playerSpeed } from '../../config';
 
-export class SpeedBoost extends Pickup {
+export default class SpeedBoost extends Pickup {
     constructor(game, quantity) {
         super(game, quantity, 'SpeedBoost');
     }

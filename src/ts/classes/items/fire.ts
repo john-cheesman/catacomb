@@ -1,7 +1,7 @@
-import {Item} from '../item';
-import {animations} from '../../config';
+import Item from '../item';
+import { animations } from '../../config';
 
-export class Fire extends Item {
+export default class Fire extends Item {
     constructor(game, x, y, key, frame, name, group, flipX, flipY, immovable) {
         super(game, x, y, key, frame, name, group, flipX, flipY, immovable);
     }

@@ -1,7 +1,7 @@
-import { Enemy } from '../enemy';
+import Enemy from '../enemy';
 import { animations, frames, sprites, playerSpeed } from '../../config';
 
-export class Skeleton extends Enemy {
+export default class Skeleton extends Enemy {
     constructor(game, x, y, key, direction) {
         super(game, x, y, key, direction);
 
