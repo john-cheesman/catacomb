@@ -1,0 +1,11 @@
+html {
+    background-color: #000;
+}
+
+.game-screen {
+    margin: 40px 0;
+}
+
+.game-screen canvas {
+    margin: 0 auto;
+}

@@ -1,3 +1,4 @@
+import SpriteInput from '../sprite-input';
 import Pickup from '../pickup';
 import Progress from '../progress';
 import Factory from '../factory';
@@ -80,7 +81,13 @@ export default class Level extends Phaser.State {
 
         playerData = Utility.filterArray(this.objects, 'type', 'Player')[0];
 
-        this.player = new Player(this.game, playerData.x, playerData.y, sprites.tileSet.key, playerData.direction);
+        this.player = new Player(
+            new SpriteInput(
+                this.game,
+                playerData.x,
+                playerData.y,
+                sprites.tileSet.key),
+            playerData.direction);
 
         this.player.create();
         this.player.z = 2000;

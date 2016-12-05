@@ -1,3 +1,4 @@
+import Level from './states/level';
 import SpriteInput from './sprite-input';
 import Direction from '../enums/direction';
 import { animations, frames, sprites, playerSpeed } from '../config';
@@ -18,11 +19,15 @@ export default class Enemy extends Phaser.Sprite {
         this.immovable = true;
 
         this.speed = playerSpeed;
+
+        this.level = <Level>this.game.state.getCurrentState();
     }
 
     public speed: number;
 
     public immovable: boolean;
+
+    public level: Level;
 
     create() {
         this.game.physics.arcade.enable(this);
@@ -35,17 +40,15 @@ export default class Enemy extends Phaser.Sprite {
     }
 
     update() {
-        let currentState = this.game.state.getCurrentState();
+        this.game.physics.arcade.collide(this, this.level.subCollisionLayer, this.changeDirection, null, this);
+        this.game.physics.arcade.collide(this, this.level.superCollisionLayer, this.changeDirection, null, this);
+        this.game.physics.arcade.collide(this, this.level.superCollisionLayer, this.changeDirection, null, this);
 
-        this.game.physics.arcade.collide(this, currentState.subCollisionLayer, this.changeDirection, null, this);
-        this.game.physics.arcade.collide(this, currentState.superCollisionLayer, this.changeDirection, null, this);
-        this.game.physics.arcade.collide(this, currentState.superCollisionLayer, this.changeDirection, null, this);
-
-        this.game.physics.arcade.collide(this.game.player, this, this.attackPlayer, null, this);
+        this.game.physics.arcade.collide(this.level.player, this, this.attackPlayer, null, this);
     }
 
     attackPlayer() {
-        this.game.player.die();
+        this.level.player.die();
     }
 
     changeDirection() {
@@ -56,12 +59,13 @@ export default class Enemy extends Phaser.Sprite {
         setDirection(newDirection, this);
     }
 
-    static instantiateFromMapData(game, object) {
+    static instantiateFromMapData(game: Phaser.Game, object: any) {
         return new this(
-            game,
-            object.x,
-            object.y,
-            sprites.tileSet.key,
+            new SpriteInput(
+                game,
+                object.x,
+                object.y,
+                sprites.tileSet.key),
             object.properties.direction
         );
     }
