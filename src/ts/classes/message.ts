@@ -1,12 +1,16 @@
 import { sprites, dimensions, colours } from '../config';
 
 export default class Message {
-    constructor(game, text, frame, key = sprites.tileSet.key) {
-        let textX,
-            textY,
-            textWidth;
+    constructor(
+        public game: Phaser.Game,
+        text: string,
+        frame: number = null,
+        key: string = sprites.tileSet.key) {
 
-        this.game = game;
+        let textX: number,
+            textY: number,
+            textWidth: number;
+
         this.ground = new Phaser.Graphics(this.game);
 
         if (frame && key) {
@@ -42,6 +46,10 @@ export default class Message {
 
     }
 
+    public ground: Phaser.Graphics;
+    public sprite: Phaser.Sprite;
+    public text: Phaser.Text;
+
     display(duration = 1000) {
         this.game.add.existing(this.ground);
         this.game.add.existing(this.text);
@@ -62,10 +70,10 @@ export default class Message {
         }
     }
 
-    static create(game, text) {
-        let message;
+    static create(game: Phaser.Game, text: string) {
+        let message: Message;
 
-        message = new this(game, text);
+        message = new Message(game, text);
 
         message.display();
     }

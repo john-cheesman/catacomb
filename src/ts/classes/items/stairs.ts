@@ -1,25 +1,11 @@
+import SpriteInput from '../sprite-input';
+import ItemInput from '../item-input';
 import Item from '../item';
 import { sprites, dimensions } from '../../config';
 
 export default class Stairs extends Item {
-    constructor(
-        game,
-        x,
-        y,
-        key,
-        frame,
-        name,
-        group,
-        flipX = false,
-        flipY = false,
-        immovable,
-        targetState,
-        hidden = false)
-    {
-        super(game, x, y, key, frame, name, group, flipX, flipY, immovable);
-
-        this.targetState = targetState;
-        this.hidden = hidden;
+    constructor(itemInput: ItemInput, public targetState: string, public hidden = false) {
+        super(itemInput);
     }
 
     create() {
@@ -27,29 +13,29 @@ export default class Stairs extends Item {
     }
 
     update() {
-        this.game.physics.arcade.overlap(this.game.player, this, this.use, null, this);
+        this.game.physics.arcade.overlap(this.level.player, this, this.use, null, this);
     }
 
     use() {
         if (!this.hidden) {
-            let currentState = this.game.state.getCurrentState();
-
-            this.game.state.start(this.targetState, true, false, currentState.levelID);
+            this.game.state.start(this.targetState, true, false, this.level.levelID);
         }
     }
 
-    static instantiateFromMapData(game, object) {
+    static instantiateFromMapData(game: Phaser.Game, object: any) {
         return new this(
-            game,
-            object.x,
-            object.y,
-            sprites.tileSet.key,
-            parseInt(object.properties.frame, 10),
-            object.name,
-            object.properties.group,
-            object.properties.flipX === 'true',
-            object.properties.flipY === 'true',
-            object.properties.immovable,
+            new ItemInput(
+                new SpriteInput(
+                    game,
+                    object.x,
+                    object.y,
+                    sprites.tileSet.key,
+                    parseInt(object.properties.frame, 10)),
+                object.name,
+                object.properties.group,
+                object.properties.flipX === 'true',
+                object.properties.flipY === 'true',
+                object.properties.immovable),
             object.properties.targetState
         );
     }

@@ -1,9 +1,14 @@
+import SpriteInput from './sprite-input';
 import Direction from '../enums/direction';
 import { animations, frames, sprites, playerSpeed } from '../config';
 
 export default class Enemy extends Phaser.Sprite {
-    constructor(game: Phaser.Game, x: number, y: number, key: string, public direction: Direction = Direction.Down) {
-        super(game, x, y, key);
+    constructor(spriteInput: SpriteInput, public direction: Direction = Direction.Down) {
+        super(
+            spriteInput.game,
+            spriteInput.x,
+            spriteInput.y,
+            spriteInput.key);
 
         this.animations.add('up', animations.ghost.float.up, 10, true);
         this.animations.add('right', animations.ghost.float.right, 10, true);

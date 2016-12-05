@@ -1,8 +1,6 @@
 import { colours } from '../config';
 
-let textStyle: any;
-
-textStyle = {
+const textStyle: any = {
     default: {
         font: '16px Consolas',
         align: 'left',
@@ -16,7 +14,15 @@ textStyle = {
 }
 
 export default class MenuItem extends Phaser.Text {
-    constructor(game, x, y, text, targetState, params = null, focused = false) {
+    constructor(
+        game: Phaser.Game,
+        x: number,
+        y: number,
+        text: string,
+        public targetState: string,
+        public params?: any[],
+        public focused: boolean = false) {
+
         super(game, x, y, text, textStyle.default);
 
         this.targetState = targetState;
@@ -26,7 +32,7 @@ export default class MenuItem extends Phaser.Text {
         this.game.world.addChild(this);
     }
 
-    focus(focused) {
+    focus(focused: boolean) {
         if (focused) {
             this.focused = true;
             this.setStyle(textStyle.focused);

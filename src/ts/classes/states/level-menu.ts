@@ -1,33 +1,40 @@
+import TimeDisplay from '../time-display';
 import Menu from '../menu';
+import MenuState from './menu-state';
 import Utility from '../utility';
+import LevelProgress from '../level-progress';
 import { colours, dimensions, levelData } from '../../config';
 
-export default class LevelMenu extends Phaser.State {
-    init(levelID) {
+export default class LevelMenu extends MenuState {
+    public id: number;
+    public levelData: any;
+    public levelProgress: LevelProgress;
+
+    init(levelID: number) {
         this.id = levelID;
         this.levelData = levelData[(levelID - 1)];
-        this.progress = this.game.progress.levels[(levelID - 1)];
+        this.levelProgress = this.progress.levels[(levelID - 1)];
     }
 
     create() {
-        let levelDetails,
-            time,
-            bestTime,
-            menuOptions,
-            startOption,
-            nextOption,
-            previousOption,
-            mainMenuOption;
+        let levelDetails: string,
+            time: TimeDisplay,
+            bestTime: string,
+            menuOptions: any[],
+            startOption: any,
+            nextOption: any,
+            previousOption: any,
+            mainMenuOption: any;
 
-        if (this.progress.complete) {
-            time = Utility.displayTime(this.progress.best.time);
+        if (this.levelProgress.complete) {
+            time = Utility.displayTime(this.levelProgress.best.time);
             bestTime = `${time.minutes}:${time.seconds}`;
         }
         else {
             bestTime = '--:--';
         }
 
-        levelDetails = `Best time: ${bestTime}\nGems: ${this.progress.best.gems}/${this.levelData.gems}\nGold: ${this.progress.best.gold}/${this.levelData.gold}`;
+        levelDetails = `Best time: ${bestTime}\nGems: ${this.levelProgress.best.gems}/${this.levelData.gems}\nGold: ${this.levelProgress.best.gold}/${this.levelData.gold}`;
 
         this.game.add.text((dimensions.tileSize / 2), (dimensions.tileSize * 2.5), levelDetails, {
             font: '16px Consolas',
@@ -69,7 +76,7 @@ export default class LevelMenu extends Phaser.State {
             targetState: 'MainMenu'
         }
 
-        if (this.progress.unlocked) {
+        if (this.levelProgress.unlocked) {
             menuOptions.push(startOption);
         }
 

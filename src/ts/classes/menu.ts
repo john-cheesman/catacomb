@@ -2,12 +2,17 @@ import MenuItem from './menu-item';
 import { colours, dimensions } from '../config';
 
 export default class Menu {
-    constructor(game, x, y, options) {
-        this.game = game;
-        this.x = x;
-        this.y = y;
-        this.options = options;
+    constructor(
+        public game: Phaser.Game,
+        public x: number,
+        public y: number,
+        public options: any) {
     }
+
+    public focused: number;
+    public keyboard: Phaser.Keyboard;
+    public controls: any;
+    public menuItems: MenuItem[];
 
     create() {
         this.focused = 0;
@@ -25,8 +30,8 @@ export default class Menu {
         this.menuItems = [];
 
         for (let i = 0; i < this.options.length; i++) {
-            let option,
-                menuItem;
+            let option: any,
+                menuItem: MenuItem;
 
             option = this.options[i];
 
@@ -42,7 +47,7 @@ export default class Menu {
         this.controls.down.onDown.add(this.selectItem, this, 0, 1);
     }
 
-    selectItem(key, delta) {
+    selectItem(delta: number) {
         this.menuItems[this.focused].focus(false);
 
         this.focused += delta;

@@ -1,16 +1,22 @@
+import TimeDisplay from '../time-display';
+import LevelRecord from '../level-record';
 import Menu from '../menu';
+import MenuState from './menu-state';
 import Utility from '../utility';
 import { dimensions, colours, levelData, sprites, animations } from '../../config';
 
-export default class LevelExit extends Phaser.State {
-    init(completedLevelID) {
-        let completedLevelData,
-            currentLevelData,
-            formattedTime;
+export default class LevelExit extends MenuState {
+    public completedLevelID: number;
+    public summary: string;
+
+    init(completedLevelID: number) {
+        let completedLevelData: LevelRecord,
+            currentLevelData: any,
+            formattedTime: TimeDisplay;
 
         this.completedLevelID = completedLevelID;
 
-        completedLevelData = this.game.progress.levels[(completedLevelID - 1)].latest;
+        completedLevelData = this.progress.levels[(completedLevelID - 1)].latest;
         currentLevelData = levelData[(completedLevelID - 1)];
         formattedTime = Utility.displayTime(completedLevelData.time);
 
@@ -18,13 +24,13 @@ export default class LevelExit extends Phaser.State {
     }
 
     create() {
-        let textWidth,
-            padding,
-            playerSprite,
-            menuOptions,
-            nextLevelOption,
-            replayOption,
-            mainMenuOption;
+        let textWidth: number,
+            padding: number,
+            playerSprite: Phaser.Sprite,
+            menuOptions: any[],
+            nextLevelOption: any,
+            replayOption: any,
+            mainMenuOption: any;
 
         textWidth = (dimensions.gameWidth - dimensions.tileSize);
         padding = (dimensions.tileSize / 2);

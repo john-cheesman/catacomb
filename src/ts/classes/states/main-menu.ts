@@ -1,7 +1,8 @@
 import Menu from '../menu';
+import MenuState from './menu-state';
 import { colours, dimensions } from '../../config';
 
-export default class MainMenu extends Phaser.State {
+export default class MainMenu extends MenuState {
     create() {
         this.game.add.text((dimensions.tileSize / 2), (dimensions.tileSize / 2), 'Catacomb', {
             font: '20px Consolas',
@@ -15,7 +16,7 @@ export default class MainMenu extends Phaser.State {
             {
                 text: 'Levels',
                 targetState: 'LevelMenu',
-                params: this.game.progress.levelReached
+                params: this.progress.levelReached
             },
             {
                 text: 'Credits',

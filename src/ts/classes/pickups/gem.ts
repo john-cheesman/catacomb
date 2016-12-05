@@ -3,7 +3,7 @@ import Message from '../message';
 import { frames } from '../../config';
 
 export default class Gem extends Pickup {
-    constructor(game, quantity) {
+    constructor(game: Phaser.Game, quantity: number) {
         super(game, quantity, 'Gem');
 
         this.singular = 'a gem';
@@ -13,8 +13,8 @@ export default class Gem extends Pickup {
     collect() {
         super.collect();
 
-        let messageText,
-            message;
+        let messageText: string,
+            message: Message;
 
         messageText = this.quantity > 1 ? `You found ${this.quantity} ${this.plural}` : `You found ${this.singular}`;
         message = new Message(this.game, messageText, frames.gems);

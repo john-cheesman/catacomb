@@ -2,8 +2,10 @@ import Menu from '../menu';
 import { colours, dimensions } from '../../config';
 
 export default class Credits extends Phaser.State {
+    public menu: Menu;
+
     create() {
-        let creditsBody;
+        let creditsBody: string;
 
         creditsBody = 'Created by John Cheesman. All artwork by Lanea Zimmerman.\n\nCopyright 2016 John Cheesman.';
 

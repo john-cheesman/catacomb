@@ -1,12 +1,14 @@
+import SpriteInput from '../sprite-input';
+import ItemInput from '../item-input';
 import Item from '../item';
 import { animations, sprites } from '../../config';
 
 export default class Torch extends Item {
-    constructor(game, x, y, key, frame, name, group, flipX, flipY, immovable, colour) {
-        super(game, x, y, key, frame, name, group, flipX, flipY, immovable);
-
-        this.colour = colour;
+    constructor(itemInput: ItemInput, public colour: string) {
+        super(itemInput);
     }
+
+    [colour: string]: any;
 
     create() {
         super.create();
@@ -16,18 +18,20 @@ export default class Torch extends Item {
     }
 
 
-    static instantiateFromMapData(game, object) {
+    static instantiateFromMapData(game: Phaser.Game, object: any) {
         return new this(
-            game,
-            object.x,
-            object.y,
-            sprites.tileSet.key,
-            parseInt(object.properties.frame, 10),
-            object.name,
-            object.properties.group,
-            object.properties.flipX === 'true',
-            object.properties.flipY === 'true',
-            object.properties.immovable !== 'false',
+            new ItemInput(
+                new SpriteInput(
+                    game,
+                    object.x,
+                    object.y,
+                    sprites.tileSet.key,
+                    parseInt(object.properties.frame, 10)),
+                object.name,
+                object.properties.group,
+                object.properties.flipX === 'true',
+                object.properties.flipY === 'true',
+                object.properties.immovable !== 'false'),
             object.properties.colour
         );
     }

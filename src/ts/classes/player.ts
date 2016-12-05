@@ -1,8 +1,18 @@
+import SpriteInput from './sprite-input';
+import Level from './states/level';
+import Direction from '../enums/direction';
 import { animations, frames, sprites, playerSpeed } from '../config';
 
 export default class Player extends Phaser.Sprite {
-    constructor(game, x, y, key, direction = 'down') {
-        super(game, x, y, key);
+    constructor(
+        spriteInput: SpriteInput,
+        public direction: Direction = Direction.Down) {
+
+        super(
+            spriteInput.game,
+            spriteInput.x,
+            spriteInput.y,
+            spriteInput.key);
 
         this.animations.add('up', animations.player.walk.up, 10);
         this.animations.add('right', animations.player.walk.right, 10);
@@ -25,6 +35,11 @@ export default class Player extends Phaser.Sprite {
         this.speed = playerSpeed;
     }
 
+    public speed: number;
+    public frame: number;
+    public keyboard: Phaser.Keyboard;
+    public controls: any;
+
     create() {
         this.game.physics.arcade.enable(this);
 
@@ -40,25 +55,25 @@ export default class Player extends Phaser.Sprite {
             this.body.velocity.y = this.speed * -1;
             this.body.velocity.x = 0;
             this.animations.play('up');
-            this.direction = 'up';
+            this.direction = Direction.Up;
         }
         else if (this.keyboard.isDown(this.controls.down)) {
             this.body.velocity.y = this.speed;
             this.body.velocity.x = 0;
             this.animations.play('down');
-            this.direction = 'down';
+            this.direction = Direction.Down;
         }
         else if (this.keyboard.isDown(this.controls.left)) {
             this.body.velocity.x = this.speed * -1;
             this.body.velocity.y = 0;
             this.animations.play('left');
-            this.direction = 'left';
+            this.direction = Direction.Left;
         }
         else if (this.keyboard.isDown(this.controls.right)) {
             this.body.velocity.x = this.speed;
             this.body.velocity.y = 0;
             this.animations.play('right');
-            this.direction = 'right';
+            this.direction = Direction.Right;
         }
         else {
             this.body.velocity.x = 0;
@@ -69,17 +84,18 @@ export default class Player extends Phaser.Sprite {
     }
 
     die() {
-        let currentState = this.game.state.getCurrentState();
+        let currentState = <Level>this.game.state.getCurrentState();
 
         this.game.state.start('GameOver', true, false, currentState.levelID);
     }
 
-    static instantiateFromMapData(game, object) {
+    static instantiateFromMapData(game: Phaser.Game, object: any) {
         return new this(
-            game,
-            object.x,
-            object.y,
-            sprites.tileSet.key,
+            new SpriteInput(
+                game,
+                object.x,
+                object.y,
+                sprites.tileSet.key),
             object.properties.direction
         );
     }

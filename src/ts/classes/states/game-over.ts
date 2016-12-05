@@ -3,13 +3,17 @@ import Utility from '../utility';
 import { dimensions, colours, levelData, sprites, frames } from '../../config';
 
 export default class GameOver extends Phaser.State {
-    init(levelID) {
+    public levelID: number;
+
+    public menu: Menu;
+
+    init(levelID: number) {
         this.levelID = levelID;
     }
 
     create() {
-        let menuOptions,
-            playerSprite;
+        let menuOptions: Object[],
+            playerSprite: Phaser.Sprite;
 
         this.game.add.text((dimensions.tileSize / 2), (dimensions.tileSize / 2), 'Game Over', {
             font: '20px Consolas',

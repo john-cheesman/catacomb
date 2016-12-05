@@ -28,7 +28,7 @@ objects = {
 };
 
 export default class Factory {
-    static getObjectFromString(objectName) {
+    static getObjectFromString(objectName: string) {
         if (objects[objectName]) {
             return objects[objectName];
         }
@@ -36,14 +36,15 @@ export default class Factory {
         console.error(`Object not found: ${objectName}`);
     }
 
-    static getObjectsFromMapLayer(map, layer) {
-        let objects;
+    static getObjectsFromMapLayer(map: Phaser.Tilemap, layer: number) {
+        let objects: any[],
+            i: number;
 
         objects = [];
 
-        for (let i = 0; i < map.objects[layer].length; i++) {
-            let object,
-                mapObject;
+        for (i = 0; i < map.objects[layer].length; i++) {
+            let object: any,
+                mapObject: any;
 
             mapObject = map.objects[layer][i];
 

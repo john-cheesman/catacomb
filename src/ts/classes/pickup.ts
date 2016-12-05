@@ -1,12 +1,15 @@
 export default class Pickup {
-    constructor(game, quantity, type) {
-        this.game = game;
-        this.quantity = parseInt(quantity, 10);
-        this.type = type;
+    constructor(
+        public game: Phaser.Game,
+        public quantity: number,
+        public type: string) {
     }
 
+    public singular: string;
+    public plural: string;
+
     collect() {
-        let currentState;
+        let currentState: any;
 
         currentState = this.game.state.getCurrentState();
 

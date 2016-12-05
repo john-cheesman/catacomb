@@ -1,15 +1,16 @@
+import SpriteInput from '../sprite-input';
+import ItemInput from '../item-input';
 import Item from '../item';
 import Utility from '../utility';
 import Message from '../message';
 import { animations, sprites } from '../../config';
 
 export default class Switch extends Item {
-    constructor(game, x, y, key, frame, name, group, flipX, flipY, immovable, action, thrown = false) {
-        super(game, x, y, key, frame, name, group, flipX, flipY, immovable);
-
-        this.action = action;
-        this.thrown = thrown;
+    constructor(itemInput: ItemInput, public action: string, public thrown = false) {
+        super(itemInput);
     }
+
+    [action: string]: any;
 
     create() {
         super.create();
@@ -19,7 +20,7 @@ export default class Switch extends Item {
     }
 
     update() {
-        this.game.physics.arcade.collide(this.game.player, this, this.throw, null, this);
+        this.game.physics.arcade.collide(this.level.player, this, this.throw, null, this);
     }
 
     throw() {
@@ -33,7 +34,7 @@ export default class Switch extends Item {
     }
 
     disableSpikes() {
-        let spikes;
+        let spikes: any;
 
         spikes = Utility.filterArray(this.game.world.children, 'group', 'spikes');
 
@@ -44,18 +45,20 @@ export default class Switch extends Item {
         Message.create(this.game, 'You disabled the spikes');
     }
 
-    static instantiateFromMapData(game, object) {
+    static instantiateFromMapData(game: Phaser.Game, object: any) {
         return new this(
-            game,
-            object.x,
-            object.y,
-            sprites.tileSet.key,
-            parseInt(object.properties.frame, 10),
-            object.name,
-            object.properties.group,
-            object.properties.flipX === 'true',
-            object.properties.flipY === 'true',
-            object.properties.immovable,
+            new ItemInput(
+                new SpriteInput(
+                    game,
+                    object.x,
+                    object.y,
+                    sprites.tileSet.key,
+                    parseInt(object.properties.frame, 10)),
+                object.name,
+                object.properties.group,
+                object.properties.flipX === 'true',
+                object.properties.flipY === 'true',
+                object.properties.immovable),
             object.properties.action,
             object.properties.thrown === 'true'
         );

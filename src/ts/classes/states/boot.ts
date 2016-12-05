@@ -1,10 +1,6 @@
 import { dimensions, sprites, colours } from '../../config';
 
 export default class Boot extends Phaser.State {
-    constructor(game) {
-        super(game);
-    }
-
     preload() {
         this.game.load.spritesheet(sprites.spinner.key, sprites.spinner.path, 24, 24, 8);
     }
@@ -18,20 +14,20 @@ export default class Boot extends Phaser.State {
             this.scale.forceLandscape = false;
             this.scale.forcePortrait = true;
             this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-            this.scale.setScreenSize(true);
+            //this.scale.setScreenSize(true);
             this.scale.pageAlignHorizontally = true;
         }
 
-        this.game.stateTransition = this.game.plugins.add(Phaser.Plugin.StateTransition);
+        //this.game.stateTransition = this.game.plugins.add(Phaser.Plugin.StateTransition);
 
-        this.game.stateTransition.configure({
-            duration: Phaser.Timer.SECOND * 0.5,
-            ease: Phaser.Easing.Exponential.InOut,
-            properties: {
-                alpha: 0
-            }
-        });
+        // this.game.stateTransition.configure({
+        //     duration: Phaser.Timer.SECOND * 0.5,
+        //     ease: Phaser.Easing.Exponential.InOut,
+        //     properties: {
+        //         alpha: 0
+        //     }
+        // });
 
-        this.state.start('Preloader');
+        this.game.state.start('Preloader');
     }
 }

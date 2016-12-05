@@ -1,8 +1,9 @@
 import Enemy from '../enemy';
+import Direction from '../../enums/direction';
 import { animations, frames, sprites, playerSpeed } from '../../config';
 
 export default class Skeleton extends Enemy {
-    constructor(game, x, y, key, direction) {
+    constructor(game: Phaser.Game, x: number, y: number, key: string, direction: Direction = Direction.Down) {
         super(game, x, y, key, direction);
 
         this.animations.add('up', animations.skeleton.walk.up, 10, true);

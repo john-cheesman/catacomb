@@ -53,7 +53,6 @@ function pad(val: number): string {
     if (valString.length < 2) {
         return `0${valString}`;
     }
-    else {
-        return valString;
-    }
+
+    return valString;
 }

@@ -1,3 +1,5 @@
 import Game from './classes/game';
 
-new Game();
+module Catacomb {
+    new Game();
+}

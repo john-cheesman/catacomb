@@ -1,10 +1,10 @@
-const dimensions = {
+const dimensions: any = {
     tileSize: 32,
     gameWidth: 320,
     gameHeight: 288
 };
 
-const sprites = {
+const sprites: any = {
     tileSet: {
         name: 'tiny32',
         key: 'map',
@@ -17,7 +17,7 @@ const sprites = {
     }
 }
 
-const animations = {
+const animations: any = {
     player: {
         walk: {
             up: [180, 179, 181, 179],
@@ -67,7 +67,7 @@ const animations = {
     }
 }
 
-const frames = {
+const frames: any = {
     player: {
         up: 179,
         down: 131,
@@ -82,7 +82,7 @@ const frames = {
     gems: 154
 }
 
-const levelData = [
+const levelData: any = [
     {
         levelID: 1,
         gems: 1,
@@ -100,9 +100,9 @@ const levelData = [
     }
 ];
 
-const playerSpeed = 120;
+const playerSpeed: number = 120;
 
-const colours = {
+const colours: any = {
     white: 0xdeeed6,
     black: 0x140c1c,
     blue: 0x597dce

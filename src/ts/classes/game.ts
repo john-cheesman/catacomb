@@ -19,18 +19,6 @@ export default class Game extends Phaser.Game {
     constructor() {
         super(dimensions.gameWidth, dimensions.gameHeight, Phaser.AUTO, 'gameScreen');
 
-        this.progress = Utility.loadGame();
-
-        if (!this.progress) {
-            this.progress = new Progress();
-
-            for (let i = 0; i < levelData.length; i++) {
-                this.progress.levels.push(new LevelProgress(i + 1));
-            }
-
-            this.progress.levels[0].unlocked = true;
-        }
-
         this.state.add('Boot', Boot);
 
         this.state.add('Preloader', Preloader);
@@ -53,58 +41,4 @@ export default class Game extends Phaser.Game {
 
         this.state.start('Boot');
     }
-
-    public player: Player;
-
-    public enemies: Phaser.Group;
-
-    public progress: Progress;
-
-    public updateProgress(levelID: number, time: number, pickups: Pickup[]) {
-        let gems: number,
-            gold: number,
-            level: LevelProgress,
-            nextLevel: LevelProgress;
-
-        gems = countPickups(pickups, 'Gem');
-        gold = countPickups(pickups, 'Gold');
-        level = this.progress.levels[(levelID - 1)];
-        nextLevel = this.progress.levels[levelID];
-
-        level.latest = {
-            time: time,
-            gems: gems,
-            gold: gold
-        };
-
-        level.best.time = (level.best.time > time || !level.best.time) ? time : level.best.time;
-        level.best.gems = (level.best.gems < gems) ? gems : level.best.gems;
-        level.best.gold = (level.best.gold < gold) ? gold : level.best.gold;
-
-        level.complete = true;
-
-        if (nextLevel) {
-            nextLevel.unlocked = true;
-
-            this.progress.levelReached = (nextLevel.id > this.progress.levelReached) ? nextLevel.id : this.progress.levelReached;
-        }
-
-
-        Utility.saveGame(this.progress);
-    }
 };
-
-function countPickups(pickups: Pickup[], type) {
-    let i,
-        pickupArray,
-        count;
-
-    pickupArray = Utility.filterArray(pickups, 'type', type);
-    count = 0;
-
-    for (i = 0; i < pickupArray.length; i++) {
-        count += pickupArray[i].quantity;
-    }
-
-    return count;
-}

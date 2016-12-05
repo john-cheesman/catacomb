@@ -1,12 +1,8 @@
 import { dimensions, sprites, animations } from '../../config';
 
 export default class Preloader extends Phaser.State {
-    constructor(game) {
-        super(game);
-    }
-
     preload() {
-        let spinner;
+        let spinner: Phaser.Sprite;
 
         spinner = this.game.add.sprite((dimensions.gameWidth / 2), (dimensions.gameHeight / 2), sprites.spinner.key);
 
@@ -19,6 +15,6 @@ export default class Preloader extends Phaser.State {
     }
 
     create() {
-        this.state.start('MainMenu');
+        this.game.state.start('MainMenu');
     }
 }
