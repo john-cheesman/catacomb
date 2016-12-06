@@ -10,7 +10,7 @@ export default class Credits extends Phaser.State {
         creditsBody = 'Created by John Cheesman. All artwork by Lanea Zimmerman.\n\nCopyright 2016 John Cheesman.';
 
         this.game.add.text((dimensions.tileSize / 2), (dimensions.tileSize / 2), 'Credits', {
-            font: '20px Consolas',
+            font: '20px monospace',
             fill: Phaser.Color.getWebRGB(colours.white),
             align: 'left',
             wordWrap: true,
@@ -18,7 +18,7 @@ export default class Credits extends Phaser.State {
         });
 
         this.game.add.text((dimensions.tileSize / 2), (dimensions.tileSize * 2.5), creditsBody, {
-            font: '16px Consolas',
+            font: '16px monospace',
             fill: Phaser.Color.getWebRGB(colours.white),
             align: 'left',
             wordWrap: true,

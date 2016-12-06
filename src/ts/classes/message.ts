@@ -29,7 +29,7 @@ export default class Message {
         textY = dimensions.gameHeight - (dimensions.tileSize * 1.5);
 
         this.text = new Phaser.Text(game, textX, textY, text, {
-            font: '16px Consolas',
+            font: '16px monospace',
             fill: Phaser.Color.getWebRGB(colours.white),
             align: 'left',
             wordWrap: true,

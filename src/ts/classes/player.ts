@@ -30,7 +30,7 @@ export default class Player extends Phaser.Sprite {
 
         this.direction = direction;
 
-        this.frame = frames.player[this.direction];
+        this.frame = frames.player[this.direction.toString().toLowerCase()];
 
         this.speed = playerSpeed;
     }

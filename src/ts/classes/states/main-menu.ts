@@ -5,7 +5,7 @@ import { colours, dimensions } from '../../config';
 export default class MainMenu extends MenuState {
     create() {
         this.game.add.text((dimensions.tileSize / 2), (dimensions.tileSize / 2), 'Catacomb', {
-            font: '20px Consolas',
+            font: '20px monospace',
             fill: Phaser.Color.getWebRGB(colours.white),
             align: 'left',
             wordWrap: true,

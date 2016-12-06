@@ -35,13 +35,7 @@ export default class Utility {
     }
 
     static loadGame(): Progress {
-        let json: any,
-            progress: Progress;
-
-        json = JSON.parse(localStorage.getItem('catacomb-save'));
-        progress = new Progress(new Array<LevelProgress>(), json.levelReached);
-
-        return JSON.parse(json);
+        return JSON.parse(localStorage.getItem('catacomb-save'));
     }
 }
 

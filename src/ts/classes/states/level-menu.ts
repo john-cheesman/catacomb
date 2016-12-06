@@ -37,7 +37,7 @@ export default class LevelMenu extends MenuState {
         levelDetails = `Best time: ${bestTime}\nGems: ${this.levelProgress.best.gems}/${this.levelData.gems}\nGold: ${this.levelProgress.best.gold}/${this.levelData.gold}`;
 
         this.game.add.text((dimensions.tileSize / 2), (dimensions.tileSize * 2.5), levelDetails, {
-            font: '16px Consolas',
+            font: '16px monospace',
             fill: Phaser.Color.getWebRGB(colours.white),
             align: 'left',
             wordWrap: true,
@@ -45,7 +45,7 @@ export default class LevelMenu extends MenuState {
         });
 
         this.game.add.text((dimensions.tileSize / 2), (dimensions.tileSize / 2), `Level ${this.id}`, {
-            font: '20px Consolas',
+            font: '20px monospace',
             fill: Phaser.Color.getWebRGB(colours.white),
             align: 'left',
             wordWrap: true,

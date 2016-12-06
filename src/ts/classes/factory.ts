@@ -36,7 +36,7 @@ export default class Factory {
         console.error(`Object not found: ${objectName}`);
     }
 
-    static getObjectsFromMapLayer(map: Phaser.Tilemap, layer: number) {
+    static getObjectsFromMapLayer(map: Phaser.Tilemap, layer: any) {
         let objects: any[],
             i: number;
 

@@ -2,12 +2,12 @@ import { colours } from '../config';
 
 const textStyle: any = {
     default: {
-        font: '16px Consolas',
+        font: '16px monospace',
         align: 'left',
         fill: Phaser.Color.getWebRGB(colours.white)
     },
     focused: {
-        font: '16px Consolas',
+        font: '16px monospace',
         align: 'left',
         fill: Phaser.Color.getWebRGB(colours.blue)
     }

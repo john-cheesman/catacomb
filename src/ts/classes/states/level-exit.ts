@@ -36,7 +36,7 @@ export default class LevelExit extends MenuState {
         padding = (dimensions.tileSize / 2);
 
         this.game.add.text(padding, padding, this.summary, {
-            font: '16px Consolas',
+            font: '16px monospace',
             fill: Phaser.Color.getWebRGB(colours.white),
             align: 'left',
             wordWrap: true,

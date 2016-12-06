@@ -55,7 +55,7 @@ export default class Level extends Phaser.State {
 
         this.baseLayer.resizeWorld();
 
-        this.objects = Factory.getObjectsFromMapLayer(this.map, 0);
+        this.objects = Factory.getObjectsFromMapLayer(this.map, 'objectLayer');
 
         this.enemies = this.game.add.physicsGroup();
         this.enemies.z = 1000;

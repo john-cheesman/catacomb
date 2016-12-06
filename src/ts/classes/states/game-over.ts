@@ -16,7 +16,7 @@ export default class GameOver extends Phaser.State {
             playerSprite: Phaser.Sprite;
 
         this.game.add.text((dimensions.tileSize / 2), (dimensions.tileSize / 2), 'Game Over', {
-            font: '20px Consolas',
+            font: '20px monospace',
             fill: Phaser.Color.getWebRGB(colours.white),
             align: 'left',
             wordWrap: true,

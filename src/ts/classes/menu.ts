@@ -47,7 +47,7 @@ export default class Menu {
         this.controls.down.onDown.add(this.selectItem, this, 0, 1);
     }
 
-    selectItem(delta: number) {
+    selectItem(key: any, delta: number) {
         this.menuItems[this.focused].focus(false);
 
         this.focused += delta;
