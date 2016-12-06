@@ -1,7 +1,6 @@
 npm-debug.log
 node_modules
-web/js
-web/images
-web/maps
 dist/js
+dist/maps
+dist/images
 .env
