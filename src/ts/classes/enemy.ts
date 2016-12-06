@@ -4,7 +4,7 @@ import Direction from '../enums/direction';
 import { animations, frames, sprites, playerSpeed } from '../config';
 
 export default class Enemy extends Phaser.Sprite {
-    constructor(spriteInput: SpriteInput, public direction: Direction = Direction.Down) {
+    constructor(spriteInput: SpriteInput, public direction: Direction = 'down') {
         super(
             spriteInput.game,
             spriteInput.x,
@@ -73,17 +73,17 @@ export default class Enemy extends Phaser.Sprite {
 
 function chooseDirection(currentDirection: Direction) {
     switch (currentDirection) {
-        case Direction.Up:
-            return Direction.Right;
+        case 'up':
+            return 'right';
 
-        case Direction.Down:
-            return Direction.Left;
+        case 'down':
+            return 'left';
 
-        case Direction.Left:
-            return Direction.Up;
+        case 'left':
+            return 'up';
 
-        case Direction.Right:
-            return Direction.Down;
+        case 'right':
+            return 'down';
 
         default:
             console.error(`${currentDirection} is not a valid direction`);
@@ -91,26 +91,26 @@ function chooseDirection(currentDirection: Direction) {
 }
 
 function setDirection(direction: Direction, context: Enemy) {
-    context.animations.play(direction.toString());
+    context.animations.play(direction);
     context.direction = direction;
 
     switch (direction) {
-        case Direction.Up:
+        case 'up':
             context.body.velocity.y = context.speed * -1;
             context.body.velocity.x = 0;
             break;
 
-        case Direction.Down:
+        case 'down':
             context.body.velocity.y = context.speed * 1;
             context.body.velocity.x = 0;
             break;
 
-        case Direction.Left:
+        case 'left':
             context.body.velocity.y = 0;
             context.body.velocity.x = context.speed * -1;
             break;
 
-        case Direction.Right:
+        case 'right':
             context.body.velocity.y = 0;
             context.body.velocity.x = context.speed * 1;
             break;

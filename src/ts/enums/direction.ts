@@ -1,8 +1,7 @@
-const enum Directions {
-    Up,
-    Down,
-    Left,
-    Right
-}
+type Direction =
+    'up' |
+    'down' |
+    'left' |
+    'right';
 
-export default Directions
+export default Direction

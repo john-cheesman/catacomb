@@ -4,7 +4,7 @@ import Direction from '../../enums/direction';
 import { animations, frames, sprites, playerSpeed } from '../../config';
 
 export default class Skeleton extends Enemy {
-    constructor(spriteInput: SpriteInput, direction: Direction = Direction.Down) {
+    constructor(spriteInput: SpriteInput, direction: Direction = 'down') {
         super(spriteInput, direction);
 
         this.animations.add('up', animations.skeleton.walk.up, 10, true);

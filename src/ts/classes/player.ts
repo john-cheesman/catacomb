@@ -6,7 +6,7 @@ import { animations, frames, sprites, playerSpeed } from '../config';
 export default class Player extends Phaser.Sprite {
     constructor(
         spriteInput: SpriteInput,
-        public direction: Direction = Direction.Down) {
+        public direction: Direction = 'down') {
 
         super(
             spriteInput.game,
@@ -30,7 +30,7 @@ export default class Player extends Phaser.Sprite {
 
         this.direction = direction;
 
-        this.frame = frames.player[this.direction.toString().toLowerCase()];
+        this.frame = frames.player[this.direction];
 
         this.speed = playerSpeed;
     }
@@ -55,25 +55,25 @@ export default class Player extends Phaser.Sprite {
             this.body.velocity.y = this.speed * -1;
             this.body.velocity.x = 0;
             this.animations.play('up');
-            this.direction = Direction.Up;
+            this.direction = 'up';
         }
         else if (this.keyboard.isDown(this.controls.down)) {
             this.body.velocity.y = this.speed;
             this.body.velocity.x = 0;
             this.animations.play('down');
-            this.direction = Direction.Down;
+            this.direction = 'down';
         }
         else if (this.keyboard.isDown(this.controls.left)) {
             this.body.velocity.x = this.speed * -1;
             this.body.velocity.y = 0;
             this.animations.play('left');
-            this.direction = Direction.Left;
+            this.direction = 'left';
         }
         else if (this.keyboard.isDown(this.controls.right)) {
             this.body.velocity.x = this.speed;
             this.body.velocity.y = 0;
             this.animations.play('right');
-            this.direction = Direction.Right;
+            this.direction = 'right';
         }
         else {
             this.body.velocity.x = 0;

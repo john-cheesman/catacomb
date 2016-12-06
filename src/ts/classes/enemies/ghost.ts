@@ -4,7 +4,7 @@ import Direction from '../../enums/direction';
 import { animations, frames, sprites, playerSpeed } from '../../config';
 
 export default class Ghost extends Enemy {
-    constructor(spriteInput: SpriteInput, direction: Direction = Direction.Down) {
+    constructor(spriteInput: SpriteInput, direction: Direction = 'down') {
         super(spriteInput, direction);
 
         this.animations.add('up', animations.ghost.float.up, 10, true);
