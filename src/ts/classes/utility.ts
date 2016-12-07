@@ -1,3 +1,4 @@
+import LevelRecord from './level-record';
 import Progress from './progress';
 import LevelProgress from './level-progress';
 import TimeDisplay from './time-display';
@@ -35,7 +36,15 @@ export default class Utility {
     }
 
     static loadGame(): Progress {
-        return JSON.parse(localStorage.getItem('catacomb-save'));
+        let saveData: any;
+
+        saveData = JSON.parse(localStorage.getItem('catacomb-save'));
+
+        if (saveData) {
+            return mapSaveToProgress(saveData);
+        }
+
+        return null;
     }
 }
 
@@ -49,4 +58,31 @@ function pad(val: number): string {
     }
 
     return valString;
+}
+
+function mapSaveToProgress(save: any): Progress {
+    let progress: Progress = new Progress();
+
+    progress.levelReached = save.levelReached;
+
+    save.levels.forEach((level: LevelProgress) => {
+        progress.levels.push(
+            new LevelProgress(
+                level.id,
+                new LevelRecord(
+                    level.best.time,
+                    level.best.gems,
+                    level.best.gold
+                ),
+                new LevelRecord(
+                    level.latest.time,
+                    level.latest.gems,
+                    level.latest.gold
+                ),
+                level.unlocked,
+                level.complete
+            ));
+    });
+
+    return progress;
 }

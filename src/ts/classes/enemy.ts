@@ -71,7 +71,7 @@ export default class Enemy extends Phaser.Sprite {
     }
 }
 
-function chooseDirection(currentDirection: Direction) {
+function chooseDirection(currentDirection: Direction): Direction {
     switch (currentDirection) {
         case 'up':
             return 'right';

@@ -15,33 +15,37 @@ export default class Progress {
             level: LevelProgress,
             nextLevel: LevelProgress;
 
-        progress = Utility.loadGame() || new Progress();
+        progress = Utility.loadGame();
 
-        gems = countPickups(pickups, 'Gem');
-        gold = countPickups(pickups, 'Gold');
-        level = progress.levels[(levelID - 1)];
-        nextLevel = progress.levels[levelID];
+        if (progress) {
+            gems = countPickups(pickups, 'Gem');
+            gold = countPickups(pickups, 'Gold');
+            level = progress.levels[(levelID - 1)];
+            nextLevel = progress.levels[levelID];
 
-        level.latest = {
-            time: time,
-            gems: gems,
-            gold: gold
-        };
+            level.latest = {
+                time: time,
+                gems: gems,
+                gold: gold
+            };
 
-        level.best.time = (level.best.time > time || !level.best.time) ? time : level.best.time;
-        level.best.gems = (level.best.gems < gems) ? gems : level.best.gems;
-        level.best.gold = (level.best.gold < gold) ? gold : level.best.gold;
+            level.best.time = (level.best.time > time || !level.best.time) ? time : level.best.time;
+            level.best.gems = (level.best.gems < gems) ? gems : level.best.gems;
+            level.best.gold = (level.best.gold < gold) ? gold : level.best.gold;
 
-        level.complete = true;
+            level.complete = true;
 
-        if (nextLevel) {
-            nextLevel.unlocked = true;
+            if (nextLevel) {
+                nextLevel.unlocked = true;
 
-            progress.levelReached = (nextLevel.id > progress.levelReached) ? nextLevel.id : progress.levelReached;
+                progress.levelReached = (nextLevel.id > progress.levelReached) ? nextLevel.id : progress.levelReached;
+            }
+
+            Utility.saveGame(progress);
         }
-
-
-        Utility.saveGame(progress);
+        else {
+            console.warn('Could not save progress, no save data found');
+        }
     }
 }
 

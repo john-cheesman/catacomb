@@ -13,7 +13,7 @@ export default class LevelMenu extends MenuState {
     init(levelID: number) {
         this.id = levelID;
         this.levelData = levelData[(levelID - 1)];
-        this.levelProgress = this.progress.levels[(levelID - 1)];
+        this.levelProgress = Utility.loadGame().levels[(levelID - 1)];
     }
 
     create() {

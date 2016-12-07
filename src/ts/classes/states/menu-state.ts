@@ -8,19 +8,20 @@ export default class MenuState extends Phaser.State {
     constructor() {
         super();
 
-        this.progress = Utility.loadGame();
+        let progress: Progress = Utility.loadGame();
 
-        if (!this.progress) {
-            this.progress = new Progress();
+        if (!progress) {
+            progress = new Progress();
 
             for (let i = 0; i < levelData.length; i++) {
-                this.progress.levels.push(new LevelProgress(i + 1));
+                progress.levels.push(new LevelProgress(i + 1));
             }
 
-            this.progress.levels[0].unlocked = true;
+            progress.levels[0].unlocked = true;
+
+            Utility.saveGame(progress);
         }
     }
 
-    public progress: Progress;
     public menu: Menu;
 }

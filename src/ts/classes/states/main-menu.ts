@@ -1,3 +1,4 @@
+import Utility from '../utility';
 import Menu from '../menu';
 import MenuState from './menu-state';
 import { colours, dimensions } from '../../config';
@@ -16,7 +17,7 @@ export default class MainMenu extends MenuState {
             {
                 text: 'Levels',
                 targetState: 'LevelMenu',
-                params: this.progress.levelReached
+                params: Utility.loadGame().levelReached
             },
             {
                 text: 'Credits',

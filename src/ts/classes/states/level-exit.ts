@@ -16,7 +16,7 @@ export default class LevelExit extends MenuState {
 
         this.completedLevelID = completedLevelID;
 
-        completedLevelData = this.progress.levels[(completedLevelID - 1)].latest;
+        completedLevelData = Utility.loadGame().levels[(completedLevelID - 1)].latest;
         currentLevelData = levelData[(completedLevelID - 1)];
         formattedTime = Utility.displayTime(completedLevelData.time);
 
