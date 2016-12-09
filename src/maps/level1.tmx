@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="32" tileheight="32" nextobjectid="13">
  <tileset firstgid="1" name="tiny32" tilewidth="32" tileheight="32" tilecount="256" columns="16">
-  <image source="../../../combat/web/images/tiny32.png" width="512" height="512"/>
+  <image source="../images/tiny32.png" width="512" height="512"/>
  </tileset>
  <tileset firstgid="257" name="tiny32" tilewidth="32" tileheight="32" tilecount="256" columns="16">
-  <image source="../../../combat/src/images/tiny32.png" width="512" height="512"/>
+  <image source="../images/tiny32.png" width="512" height="512"/>
  </tileset>
  <layer name="baseLayer" width="20" height="20">
   <data encoding="csv">
@@ -130,25 +130,25 @@
   <object id="1" name="gemChest" type="Chest" gid="37" x="96" y="544" width="32" height="32">
    <properties>
     <property name="contents" value="Gem"/>
-    <property name="frame" value="36"/>
+    <property name="frame" type="int" value="36"/>
    </properties>
   </object>
   <object id="2" name="torch1" type="Torch" gid="207" x="320" y="96" width="32" height="32">
    <properties>
     <property name="colour" value="yellow"/>
-    <property name="frame" value="206"/>
+    <property name="frame" type="int" value="206"/>
    </properties>
   </object>
   <object id="3" name="menu" type="Stairs" gid="2147483770" x="224" y="288" width="32" height="32">
    <properties>
     <property name="flipX" value="true"/>
-    <property name="frame" value="121"/>
+    <property name="frame" type="int" value="121"/>
     <property name="targetState" value="MainMenu"/>
    </properties>
   </object>
   <object id="7" name="exit" type="Stairs" gid="123" x="416" y="416" width="32" height="32">
    <properties>
-    <property name="frame" value="122"/>
+    <property name="frame" type="int" value="122"/>
     <property name="targetState" value="LevelExit"/>
    </properties>
   </object>
@@ -166,7 +166,7 @@
   <object id="12" name="torch3" type="Torch" gid="207" x="576" y="288" width="32" height="32">
    <properties>
     <property name="colour" value="yellow"/>
-    <property name="frame" value="206"/>
+    <property name="frame" type="int" value="206"/>
    </properties>
   </object>
  </objectgroup>

@@ -1,3 +1,4 @@
+import Spikes from './spikes';
 import SpriteInput from '../sprite-input';
 import ItemInput from '../item-input';
 import Item from '../item';
@@ -36,7 +37,7 @@ export default class Switch extends Item {
     disableSpikes() {
         let spikes: any;
 
-        spikes = Utility.filterArray(this.game.world.children, 'group', 'spikes');
+        spikes = Utility.filterArrayByType(this.game.world.children, Spikes);
 
         for (let i = 0; i < spikes.length; i++) {
             spikes[i].disable();

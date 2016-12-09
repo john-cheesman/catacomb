@@ -68,14 +68,14 @@
                  "properties":
                     {
                      "contents":"Gold",
-                     "frame":"36",
-                     "quantity":"5"
+                     "frame":36,
+                     "quantity":5
                     },
                  "propertytypes":
                     {
                      "contents":"string",
-                     "frame":"string",
-                     "quantity":"string"
+                     "frame":"int",
+                     "quantity":"int"
                     },
                  "rotation":0,
                  "type":"Chest",
@@ -92,12 +92,12 @@
                  "properties":
                     {
                      "colour":"yellow",
-                     "frame":"206"
+                     "frame":206
                     },
                  "propertytypes":
                     {
                      "colour":"string",
-                     "frame":"string"
+                     "frame":"int"
                     },
                  "rotation":0,
                  "type":"Torch",
@@ -113,14 +113,14 @@
                  "name":"menu",
                  "properties":
                     {
-                     "flipX":"true",
-                     "frame":"121",
+                     "flipX":true,
+                     "frame":121,
                      "targetState":"MainMenu"
                     },
                  "propertytypes":
                     {
-                     "flipX":"string",
-                     "frame":"string",
+                     "flipX":"bool",
+                     "frame":"int",
                      "targetState":"string"
                     },
                  "rotation":0,
@@ -137,12 +137,12 @@
                  "name":"exit",
                  "properties":
                     {
-                     "frame":"122",
+                     "frame":122,
                      "targetState":"LevelExit"
                     },
                  "propertytypes":
                     {
-                     "frame":"string",
+                     "frame":"int",
                      "targetState":"string"
                     },
                  "rotation":0,
@@ -159,14 +159,14 @@
                  "name":"spikes2",
                  "properties":
                     {
-                     "disabled":"false",
-                     "frame":"157",
+                     "disabled":false,
+                     "frame":157,
                      "group":"spikes"
                     },
                  "propertytypes":
                     {
-                     "disabled":"string",
-                     "frame":"string",
+                     "disabled":"bool",
+                     "frame":"int",
                      "group":"string"
                     },
                  "rotation":0,
@@ -183,14 +183,14 @@
                  "name":"spikes1",
                  "properties":
                     {
-                     "disabled":"false",
-                     "frame":"157",
+                     "disabled":false,
+                     "frame":157,
                      "group":"spikes"
                     },
                  "propertytypes":
                     {
-                     "disabled":"string",
-                     "frame":"string",
+                     "disabled":"bool",
+                     "frame":"int",
                      "group":"string"
                     },
                  "rotation":0,
@@ -207,14 +207,14 @@
                  "name":"spikes3",
                  "properties":
                     {
-                     "disabled":"false",
-                     "frame":"157",
+                     "disabled":false,
+                     "frame":157,
                      "group":"spikes"
                     },
                  "propertytypes":
                     {
-                     "disabled":"string",
-                     "frame":"string",
+                     "disabled":"bool",
+                     "frame":"int",
                      "group":"string"
                     },
                  "rotation":0,
@@ -231,14 +231,14 @@
                  "name":"spikes4",
                  "properties":
                     {
-                     "disabled":"false",
-                     "frame":"157",
+                     "disabled":false,
+                     "frame":157,
                      "group":"spikes"
                     },
                  "propertytypes":
                     {
-                     "disabled":"string",
-                     "frame":"string",
+                     "disabled":"bool",
+                     "frame":"int",
                      "group":"string"
                     },
                  "rotation":0,
@@ -256,14 +256,14 @@
                  "properties":
                     {
                      "action":"disableSpikes",
-                     "frame":"48",
-                     "thrown":"false"
+                     "frame":48,
+                     "thrown":false
                     },
                  "propertytypes":
                     {
                      "action":"string",
-                     "frame":"string",
-                     "thrown":"string"
+                     "frame":"int",
+                     "thrown":"bool"
                     },
                  "rotation":0,
                  "type":"Switch",
@@ -280,12 +280,12 @@
                  "properties":
                     {
                      "contents":"SpeedBoost",
-                     "frame":"36"
+                     "frame":36
                     },
                  "propertytypes":
                     {
                      "contents":"string",
-                     "frame":"string"
+                     "frame":"int"
                     },
                  "rotation":0,
                  "type":"Chest",
@@ -302,12 +302,12 @@
                  "properties":
                     {
                      "contents":"Gem",
-                     "frame":"36"
+                     "frame":36
                     },
                  "propertytypes":
                     {
                      "contents":"string",
-                     "frame":"string"
+                     "frame":"int"
                     },
                  "rotation":0,
                  "type":"Chest",
@@ -344,12 +344,12 @@
                  "properties":
                     {
                      "colour":"yellow",
-                     "frame":"206"
+                     "frame":206
                     },
                  "propertytypes":
                     {
                      "colour":"string",
-                     "frame":"string"
+                     "frame":"int"
                     },
                  "rotation":0,
                  "type":"Torch",
@@ -366,12 +366,12 @@
                  "properties":
                     {
                      "colour":"yellow",
-                     "frame":"206"
+                     "frame":206
                     },
                  "propertytypes":
                     {
                      "colour":"string",
-                     "frame":"string"
+                     "frame":"int"
                     },
                  "rotation":0,
                  "type":"Torch",
@@ -388,12 +388,12 @@
                  "properties":
                     {
                      "colour":"yellow",
-                     "frame":"206"
+                     "frame":206
                     },
                  "propertytypes":
                     {
                      "colour":"string",
-                     "frame":"string"
+                     "frame":"int"
                     },
                  "rotation":0,
                  "type":"Torch",
@@ -410,14 +410,14 @@
                  "properties":
                     {
                      "contents":"Gold",
-                     "frame":"36",
-                     "quantity":"5"
+                     "frame":36,
+                     "quantity":5
                     },
                  "propertytypes":
                     {
                      "contents":"string",
-                     "frame":"string",
-                     "quantity":"string"
+                     "frame":"int",
+                     "quantity":"int"
                     },
                  "rotation":0,
                  "type":"Chest",
@@ -474,12 +474,12 @@
                  "properties":
                     {
                      "colour":"red",
-                     "frame":"238"
+                     "frame":238
                     },
                  "propertytypes":
                     {
                      "colour":"string",
-                     "frame":"string"
+                     "frame":"int"
                     },
                  "rotation":0,
                  "type":"Torch",
@@ -496,12 +496,12 @@
                  "properties":
                     {
                      "colour":"red",
-                     "frame":"238"
+                     "frame":238
                     },
                  "propertytypes":
                     {
                      "colour":"string",
-                     "frame":"string"
+                     "frame":"int"
                     },
                  "rotation":0,
                  "type":"Torch",
@@ -518,12 +518,12 @@
                  "properties":
                     {
                      "colour":"red",
-                     "frame":"238"
+                     "frame":238
                     },
                  "propertytypes":
                     {
                      "colour":"string",
-                     "frame":"string"
+                     "frame":"int"
                     },
                  "rotation":0,
                  "type":"Torch",
@@ -539,7 +539,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":31,
+ "nextobjectid":32,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tileheight":32,
@@ -547,7 +547,7 @@
         {
          "columns":16,
          "firstgid":1,
-         "image":"..\/..\/..\/combat\/web\/images\/tiny32.png",
+         "image":"..\/images\/tiny32.png",
          "imageheight":512,
          "imagewidth":512,
          "margin":0,
@@ -560,7 +560,7 @@
         {
          "columns":16,
          "firstgid":257,
-         "image":"..\/..\/..\/combat\/src\/images\/tiny32.png",
+         "image":"..\/images\/tiny32.png",
          "imageheight":512,
          "imagewidth":512,
          "margin":0,

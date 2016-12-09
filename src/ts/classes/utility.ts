@@ -11,19 +11,21 @@ export default class Utility {
         });
     }
 
+    static filterArrayByType(array: any[], type: any): any[] {
+        return array.filter((object) => {
+            return object instanceof type;
+        });
+    }
+
     static setPositionByTile(object: any, position: number[]) {
         object.x = (position[0] * dimensions.tileSize);
         object.y = (position[1] * dimensions.tileSize);
     }
 
     static displayTime(seconds: number): TimeDisplay {
-        let roundedSeconds: number;
-
-        roundedSeconds = Math.round(seconds);
-
         return new TimeDisplay(
-            pad(roundedSeconds / 60),
-            pad(roundedSeconds % 60)
+            pad(Math.round(seconds / 60)),
+            pad(Math.round(seconds % 60))
         );
     }
 

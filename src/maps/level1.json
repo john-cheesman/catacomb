@@ -68,12 +68,12 @@
                  "properties":
                     {
                      "contents":"Gem",
-                     "frame":"36"
+                     "frame":36
                     },
                  "propertytypes":
                     {
                      "contents":"string",
-                     "frame":"string"
+                     "frame":"int"
                     },
                  "rotation":0,
                  "type":"Chest",
@@ -90,12 +90,12 @@
                  "properties":
                     {
                      "colour":"yellow",
-                     "frame":"206"
+                     "frame":206
                     },
                  "propertytypes":
                     {
                      "colour":"string",
-                     "frame":"string"
+                     "frame":"int"
                     },
                  "rotation":0,
                  "type":"Torch",
@@ -112,13 +112,13 @@
                  "properties":
                     {
                      "flipX":"true",
-                     "frame":"121",
+                     "frame":121,
                      "targetState":"MainMenu"
                     },
                  "propertytypes":
                     {
                      "flipX":"string",
-                     "frame":"string",
+                     "frame":"int",
                      "targetState":"string"
                     },
                  "rotation":0,
@@ -135,12 +135,12 @@
                  "name":"exit",
                  "properties":
                     {
-                     "frame":"122",
+                     "frame":122,
                      "targetState":"LevelExit"
                     },
                  "propertytypes":
                     {
-                     "frame":"string",
+                     "frame":"int",
                      "targetState":"string"
                     },
                  "rotation":0,
@@ -200,12 +200,12 @@
                  "properties":
                     {
                      "colour":"yellow",
-                     "frame":"206"
+                     "frame":206
                     },
                  "propertytypes":
                     {
                      "colour":"string",
-                     "frame":"string"
+                     "frame":"int"
                     },
                  "rotation":0,
                  "type":"Torch",
@@ -229,7 +229,7 @@
         {
          "columns":16,
          "firstgid":1,
-         "image":"..\/..\/..\/combat\/web\/images\/tiny32.png",
+         "image":"..\/images\/tiny32.png",
          "imageheight":512,
          "imagewidth":512,
          "margin":0,
@@ -242,7 +242,7 @@
         {
          "columns":16,
          "firstgid":257,
-         "image":"..\/..\/..\/combat\/src\/images\/tiny32.png",
+         "image":"..\/images\/tiny32.png",
          "imageheight":512,
          "imagewidth":512,
          "margin":0,
