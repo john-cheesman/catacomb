@@ -32,7 +32,7 @@ const task = {
         task['build:images']();
     },
     'serve': () => {
-        run(`http-server dist -o -p ${process.env.PORT || 8080}`, { async: true });
+        run(`http-server dist -o -p ${process.env.PORT || 3000}`, { async: true });
     },
     'watch:scripts': () => {
         watch.watchTree(`src/ts`, () => {
