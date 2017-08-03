@@ -19,11 +19,19 @@ const sprites: any = {
 
 const animations: any = {
     player: {
+        // Girl
+        // walk: {
+        //     up: [180, 179, 181, 179],
+        //     down: [132, 131, 133, 131],
+        //     left: [148, 147, 149, 147],
+        //     right: [164, 163, 165, 163]
+        // }
+        // Boy
         walk: {
-            up: [180, 179, 181, 179],
-            down: [132, 131, 133, 131],
-            left: [148, 147, 149, 147],
-            right: [164, 163, 165, 163]
+            up: [177, 176, 178, 176],
+            down: [129, 128, 130, 129],
+            left: [145, 144, 146, 144],
+            right: [161, 160, 162, 160]
         }
     },
     ghost: {
@@ -49,6 +57,7 @@ const animations: any = {
         open: [36, 37, 38, 39],
         close: [39, 38, 37, 36]
     },
+    larva: [87, 88],
     torch: {
         yellow: [205, 206, 207, 206],
         blue: [221, 222, 221, 223],
@@ -68,12 +77,21 @@ const animations: any = {
 }
 
 const frames: any = {
+    // Girl
+    // player: {
+    //     up: 179,
+    //     down: 131,
+    //     left: 147,
+    //     right: 163,
+    //     dead: 186
+    // },
+    // Boy
     player: {
-        up: 179,
-        down: 131,
-        left: 147,
-        right: 163,
-        dead: 186
+        up: 176,
+        down: 128,
+        left: 144,
+        right: 160,
+        dead: 170
     },
     spikes: {
         disabled: 157
@@ -97,6 +115,11 @@ const levelData: any = [
         levelID: 3,
         gems: 1,
         gold: 10
+    },
+    {
+        levelID: 4,
+        gems: 1,
+        gold: 0
     }
 ];
 

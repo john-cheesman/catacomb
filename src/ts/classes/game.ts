@@ -17,7 +17,7 @@ import { dimensions, levelData } from '../config';
 
 export default class Game extends Phaser.Game {
     constructor() {
-        super(dimensions.gameWidth, dimensions.gameHeight, Phaser.AUTO, 'gameScreen');
+        super(dimensions.gameWidth, dimensions.gameHeight, Phaser.CANVAS, 'gameScreen');
 
         this.state.add('Boot', Boot);
 

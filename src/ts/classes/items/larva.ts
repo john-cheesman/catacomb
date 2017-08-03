@@ -3,18 +3,12 @@ import ItemInput from '../item-input';
 import Item from '../item';
 import { animations, sprites } from '../../config';
 
-export default class Torch extends Item {
-    constructor(itemInput: ItemInput, public colour: string) {
-        super(itemInput);
-    }
-
-    [colour: string]: any;
-
+export default class Larva extends Item {
     create() {
         super.create();
 
-        this.animations.add('flame', animations.torch[this.colour], 10, true);
-        this.animations.play('flame');
+        this.animations.add('larva', animations.larva, 2, true);
+        this.animations.play('larva');
     }
 
     static instantiateFromMapData(game: Phaser.Game, object: any) {
@@ -30,8 +24,7 @@ export default class Torch extends Item {
                 object.properties.group,
                 object.properties.flipX === 'true',
                 object.properties.flipY === 'true',
-                object.properties.immovable !== 'false'),
-            object.properties.colour
+                object.properties.immovable !== 'false')
         );
     }
 }

@@ -4,6 +4,7 @@ import Fire from './items/fire';
 import Stairs from './items/stairs';
 import Spikes from './items/spikes';
 import Switch from './items/switch';
+import Larva from './items/larva';
 import Gem from './pickups/gem';
 import Gold from './pickups/gold';
 import SpeedBoost from './pickups/speed-boost';
@@ -14,17 +15,18 @@ import { dimensions } from '../config';
 let objects: any;
 
 objects = {
-    Torch: Torch,
-    Chest: Chest,
-    Fire: Fire,
-    Stairs: Stairs,
-    Spikes: Spikes,
-    Switch: Switch,
-    Gem: Gem,
-    Gold: Gold,
-    SpeedBoost: SpeedBoost,
-    Ghost: Ghost,
-    Skeleton: Skeleton
+    Torch,
+    Chest,
+    Fire,
+    Stairs,
+    Spikes,
+    Switch,
+    Larva,
+    Gem,
+    Gold,
+    SpeedBoost,
+    Ghost,
+    Skeleton
 };
 
 export default class Factory {
