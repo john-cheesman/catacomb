@@ -1,7 +1,8 @@
 {
-  "name": "phaser-es6",
+  "name": "catacomb",
   "description": "Descend through the maze...",
   "author": "John Cheesman",
+  "version": "1.0.0",
   "devDependencies": {
     "babel-core": "^6.18.2",
     "babel-preset-es2015": "^6.18.0",
